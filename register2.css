@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+.gambar {
+    width: 90.91px;
+    height: 83.33px; /* Memelihara rasio aspek */
+    /*border: 2px solid #000; */
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background : url('background6.png') no-repeat;
+
+    
+}
+/* header{
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.kiri{
+    width: 400px;
+    height: 300px;
+    margin-right: 0;
+} */
+
+.container{
+    background-color: white;
+    border-radius: 25.04px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+    min-height: 480px;
+    
+}
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 10px 0;
+}
+.container span{
+    font-size: 13.13px;
+    margin-top: 10px;
+    position: right;
+}
+.container a{
+    font-size: 13.13px;
+    color: blue;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    position: right;
+}
+/* .container i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+} */
+.container button{ 
+    background-color: #F9A021;
+    color: black;
+    font-size: 18.45px;
+    padding: 10px 45px;
+    border: #F9A021;
+    border-radius: 13.03px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.container form{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.container input{
+    background-color: white;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 100%;
+    outline: 8px;
+}
+.form-container{
+    position: center;
+    top: 0;
+    height: 100%;
+
+}
