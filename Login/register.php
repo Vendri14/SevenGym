@@ -8,7 +8,7 @@
    </head>
    <body>
       <div class="container">
-      <img src="../img/logo.png" id="logo" class="gambar">
+      <!-- <img src="../img/logo.png" id="logo" class="gambar"> -->
          <header>Register</header>
         
          <div class="form-outer">
@@ -17,13 +17,13 @@
                <div class="page slide-page">
                   <div class="field">
                      <div class="label">
-                        First Name
+                        Nama Lengkap
                      </div>
                      <input type="text">
                   </div>
                   <div class="field">
                      <div class="label">
-                        Last Name
+                        Username
                      </div>
                      <input type="text">
                   </div>
@@ -32,20 +32,18 @@
                   </div>
                </div>
                <div class="page">
-                  <div class="title">
-                     Contact Info:
+                  
+                  <div class="field">
+                     <div class="label">
+                        Password
+                     </div>
+                     <input type="password">
                   </div>
                   <div class="field">
                      <div class="label">
-                        Email Address
+                        Konfirmasi Password
                      </div>
-                     <input type="text">
-                  </div>
-                  <div class="field">
-                     <div class="label">
-                        Phone Number
-                     </div>
-                     <input type="Number">
+                     <input type="password">
                   </div>
                   <div class="field btns">
                      <button class="prev-1 prev">Previous</button>
@@ -53,14 +51,12 @@
                   </div>
                </div>
                <div class="page">
-                  <div class="title">
-                     Date of Birth:
-                  </div>
+                  
                   <div class="field">
                      <div class="label">
                         Date
                      </div>
-                     <input type="text">
+                     <input type="date">
                   </div>
                   <div class="field">
                      <div class="label">
@@ -78,20 +74,24 @@
                   </div>
                </div>
                <div class="page">
-                  <div class="title">
-                     Login Details:
-                  </div>
+                  
                   <div class="field">
                      <div class="label">
-                        Username
+                        Tinggi Badan
                      </div>
                      <input type="text">
                   </div>
                   <div class="field">
                      <div class="label">
-                        Password
+                        Berat Badan
                      </div>
-                     <input type="password">
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        No Hp
+                     </div>
+                     <input type="text">
                   </div>
                   <div class="field btns">
                      <button class="prev-3 prev">Previous</button>
