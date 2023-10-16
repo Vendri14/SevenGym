@@ -22,6 +22,7 @@
                 <form action="../koneksi/loginform.php" method="POST">
                     <img src = "../img/logo.png" id="logo" class="gambar">
                     <h1>Login</h1>
+                    oilkjhgtyu
                     <input type = "text" placeholder="Username" name="txtusername">
                     <i class='bx bx-user'></i>
                     <input type = "password" placeholder="Password" name="txtpass">
