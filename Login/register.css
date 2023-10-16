@@ -22,7 +22,7 @@ body{
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background : url('background6.png') no-repeat;
+    background : url('../img/background6.png') no-repeat;
 
     
 }

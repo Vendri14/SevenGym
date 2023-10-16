@@ -22,7 +22,7 @@ body{
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background : url('background6.png') no-repeat;
+    background : url('../img/background6.png') no-repeat;
 
     
 }
@@ -52,11 +52,11 @@ body{
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.5px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .container span{
     font-size: 13.13px;
-    margin-top: 10px;
+    margin-top: 20px;
     position: right;
 }
 .container a{
@@ -82,7 +82,7 @@ body{
     border-radius: 13.03px;
     font-weight: 500;
     letter-spacing: 0.5px;
-    margin-top: 10px;
+    margin-top: 20px;
     cursor: pointer;
 }
 .container form{

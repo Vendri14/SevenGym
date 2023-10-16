@@ -19,10 +19,10 @@ body{
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
     height: 100vh;
-    background : url('background6.png') no-repeat;
+    background : url('../img/background6.png') no-repeat;
 
     
 }
@@ -41,7 +41,6 @@ body{
     background-color: white;
     border-radius: 25.04px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-    position: relative;
     overflow: hidden;
     width: 400px;
     max-width: 100%;
@@ -52,11 +51,11 @@ body{
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.5px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .container span{
     font-size: 13.13px;
-    margin-top: 20px;
+    margin-top: 10px;
     position: right;
 }
 .container a{
@@ -82,7 +81,7 @@ body{
     border-radius: 13.03px;
     font-weight: 500;
     letter-spacing: 0.5px;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
 }
 .container form{
@@ -102,6 +101,7 @@ body{
     width: 100%;
     outline: 8px;
 }
+
 .form-container{
     position: center;
     top: 0;

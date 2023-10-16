@@ -3,7 +3,7 @@
     <head>
         <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel = "stylesheet" type="text/css" href="register2.css">
-        <title>Halaman Register 2</title>
+        <title>Halaman Register</title>
         <!-- <img src = "logo kiri.png" id ="logo kiri" class="kiri"> -->
     </head>
     <!-- <body>
@@ -16,23 +16,21 @@
     <body>
         <!-- <img src = "logo kiri.png" id ="logo kiri" class="kiri"> -->
         <div class = "container" id = "container">
-            <div class = "form-container register">
+            <div class = "form-container register2">
                 <form>
-                    <img src = "logo.png" id="logo" class="gambar">
+                    <img src = "../img/logo.png" id="logo" class="gambar">
                     <h1>Register</h1>
-                    <input type = "date"
-                    placeholder="Tanggal Lahir">
-                    <i class='bx bx-user'></i>
-                    Jenis Kelamin
-                    <input type = "radio" name ="gender">Laki-Laki<input type="radio" name="gender">Perempuan
                     <input type = "text"
-                    placeholder="Tinggi Badan">
+                    placeholder="Nama Lengkap">
+                    <i class='bx bx-user'></i>
+                    <input type = "text"
+                    placeholder="Username">
+                    <input type = "text"
+                    placeholder="Password">
                     <i class='bx bxs-key'></i>
                     <input type = "text"
-                    placeholder="Berat Badan">
-                    <input type = "phone"
-                    placeholder="No Hp">
-                    <button>Daftar</button>
+                    placeholder="Konfirmasi Password">
+                    <button>Next</button>
                     <span>Sudah Punya Akun? <a href="#">Klik Disini</a></span>
                 </form>
             </div>

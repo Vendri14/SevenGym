@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang ="en">
     <head>
@@ -17,18 +19,16 @@
         <!-- <img src = "logo kiri.png" id ="logo kiri" class="kiri"> -->
         <div class = "container" id = "container">
             <div class = "form-container login">
-                <form>
-                    <img src = "logo.png" id="logo" class="gambar">
+                <form action="../koneksi/loginform.php" method="POST">
+                    <img src = "../img/logo.png" id="logo" class="gambar">
                     <h1>Login</h1>
-                    <input type = "text"
-                    placeholder="Username">
+                    <input type = "text" placeholder="Username" name="txtusername">
                     <i class='bx bx-user'></i>
-                    <input type = "password"
-                    placeholder="Password">
+                    <input type = "password" placeholder="Password" name="txtpass">
                     <i class='bx bxs-key'></i>
                     <span>Lupa Password? <a href="#">Klik Disini</a></span>
-                    <span>Belum Punya Akun? <a href="#">Klik Disini</a></span>
-                    <button>Masuk</button>
+                    <span>Belum Punya Akun? <a href="register.html">Klik Disini</a></span>
+                    <button type="submit">Masuk</button>
                 </form>
             </div>
         </div>
