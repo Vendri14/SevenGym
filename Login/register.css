@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+.gambar {
+  width: 90.91px;
+  height: 83.33px; /* Memelihara rasio aspek */
+  /*border: 2px solid #000; */
+}
 *{
   margin: 0;
   padding: 0;
@@ -22,6 +27,7 @@ body{
   background: #fff;
   text-align: center;
   border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   padding: 50px 35px 10px 35px;
 }
 .container header{

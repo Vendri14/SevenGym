@@ -8,14 +8,13 @@
    </head>
    <body>
       <div class="container">
+      <img src="../img/logo.png" id="logo" class="gambar">
          <header>Register</header>
         
          <div class="form-outer">
             <form action="#">
+               
                <div class="page slide-page">
-                  <div class="title">
-                     Basic Info:
-                  </div>
                   <div class="field">
                      <div class="label">
                         First Name
