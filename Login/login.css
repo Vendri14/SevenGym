@@ -1,110 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-
-.gambar {
-    width: 90.91px;
-    height: 83.33px; /* Memelihara rasio aspek */
-    /*border: 2px solid #000; */
-}
-
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
 }
-
 body{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    background : url('../img/background6.png') no-repeat;
-
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: url("../img/background6.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
 }
-/* header{
-    top: 0;
-    left: 0;
-    width: 100%;
+::selection{
+  color: #fff;
+  background: #F9A021;
 }
-.kiri{
-    width: 400px;
-    height: 300px;
-    margin-right: 0;
-} */
-
 .container{
-    background-color: white;
-    border-radius: 25.04px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-    position: relative;
-    overflow: hidden;
-    width: 400px;
-    max-width: 100%;
-    min-height: 480px;
-    
+  width: 330px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 50px 35px 10px 35px;
 }
-.container p{
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.5px;
-    margin: 20px 0;
+.container header{
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
 }
-.container span{
-    font-size: 13.13px;
-    margin-top: 20px;
-    position: right;
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
 }
-.container a{
-    font-size: 13.13px;
-    color: blue;
-    text-decoration: none;
-    margin: 15px 0 10px;
-    position: right;
+.container .form-outer form{
+  display: flex;
+  width: 400%;
 }
-/* .container i{
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-} */
-.container button{ 
-    background-color: #F9A021;
-    color: black;
-    font-size: 18.45px;
-    padding: 10px 45px;
-    border: #F9A021;
-    border-radius: 13.03px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
-    cursor: pointer;
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
 }
-.container form{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
+.form-outer form .page .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
 }
-.container input{
-    background-color: white;
-    margin: 8px 0;
-    padding: 10px 15px;
-    font-size: 16px;
-    width: 100%;
-    outline: 8px;
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
 }
-.form-container{
-    position: center;
-    top: 0;
-    height: 100%;
-
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .page .field button{
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #F9A021;
+  margin-top: -20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .field button:hover{
+  background: #000;
+}
+form .page .btns button{
+  margin-top: -20px!important;
+}
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: #F9A021;
+  background: #F9A021;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #262626;
+}
+.progress-bar .step .bullet.active:after{
+  background: #F9A021;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: #F9A021;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
 }

@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
@@ -57,6 +55,31 @@
                </div>
                <div class="page">
                   <div class="title">
+                     Date of Birth:
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Date
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Gender
+                     </div>
+                     <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                     </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-2 prev">Previous</button>
+                     <button class="next-2 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
                      Login Details:
                   </div>
                   <div class="field">
@@ -77,6 +100,7 @@
                   </div>
                </div>
             </form>
+            <span>Sudah Punya Akun? <a href="#">Klik Disini</a></span>
          </div>
       </div>
       <script src="fungsi.js"></script>
