@@ -35,6 +35,6 @@
             </form>
          </div>
       </div>
-      <script src="fungsi.js"></script>
+      <script src="../JS/fungsi.js"></script>
    </body>
 </html>
