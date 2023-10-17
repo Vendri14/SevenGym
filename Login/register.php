@@ -12,20 +12,20 @@
          <header>Register</header>
         
          <div class="form-outer">
-            <form action="#">
+            <form action="../koneksi/registerform.php" method="POST">
                
                <div class="page slide-page">
                   <div class="field">
                      <div class="label">
                         Nama Lengkap
                      </div>
-                     <input type="text">
+                     <input type="text" name="nama_lengkap">
                   </div>
                   <div class="field">
                      <div class="label">
                         Username
                      </div>
-                     <input type="text">
+                     <input type="text" name="username">
                   </div>
                   <div class="field">
                      <button class="firstNext next">Next</button>
@@ -37,13 +37,13 @@
                      <div class="label">
                         Password
                      </div>
-                     <input type="password">
+                     <input type="password" name="password">
                   </div>
                   <div class="field">
                      <div class="label">
                         Konfirmasi Password
                      </div>
-                     <input type="password">
+                     <input type="password" name="repass">
                   </div>
                   <div class="field btns">
                      <button class="prev-1 prev">Previous</button>
@@ -56,16 +56,15 @@
                      <div class="label">
                         Date
                      </div>
-                     <input type="date">
+                     <input type="date" name="tanggal_lahir">
                   </div>
                   <div class="field">
                      <div class="label">
                         Gender
                      </div>
-                     <select>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
+                     <select name="jenis_kelamin">
+                        <option>Perempuan</option>
+                        <option>Laki-Laki</option>
                      </select>
                   </div>
                   <div class="field btns">
@@ -79,19 +78,19 @@
                      <div class="label">
                         Tinggi Badan
                      </div>
-                     <input type="text">
+                     <input type="text" name="tb">
                   </div>
                   <div class="field">
                      <div class="label">
                         Berat Badan
                      </div>
-                     <input type="text">
+                     <input type="text" name="bb">
                   </div>
                   <div class="field">
                      <div class="label">
                         No Hp
                      </div>
-                     <input type="text">
+                     <input type="text" name="nohp">
                   </div>
                   <div class="field btns">
                      <button class="prev-3 prev">Previous</button>
