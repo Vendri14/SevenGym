@@ -10,6 +10,8 @@ $tb = $_POST["tb"];
 $bb = $_POST["bb"];
 $nohp = $_POST["nohp"];
 
+$reps;
+
 $query_sql = "INSERT INTO user (nama_lengkap, username, password, tanggal_lahir, jenis_kelamin, tb, bb, nohp) 
 VALUES ('$nama_lengkap','$username','$password','$tanggal_lahir','$jenis_kelamin','$tb','$bb','$nohp')";
 $result = mysqli_query($koneksi, $query_sql);
