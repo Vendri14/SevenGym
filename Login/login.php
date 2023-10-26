@@ -33,6 +33,7 @@
                   </div>
                </div>
             </form>
+            <span>Belum Punya Akun? <a href="register.php">Klik Disini</a></span>
          </div>
       </div>
       <script src="../JS/fungsi.js"></script>

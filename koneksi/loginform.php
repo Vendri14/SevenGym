@@ -11,6 +11,6 @@
             alert ("Username atau Password Salah silahkan coba lagi"); document.location="../Login/login.php"; </script>';
         }else {
             echo '<script language ="javascript">
-            alert ("anda berhasil login"); document.location="home.php"; </script>';
+            alert ("anda berhasil login"); document.location="../Dashboard/dashboard.php"; </script>';
             } 
 ?>
