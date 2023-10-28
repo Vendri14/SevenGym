@@ -3,7 +3,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
     font-family: 'Poppins', sans-serif;
 }
 
@@ -105,6 +105,7 @@ nav.close .logo_name{
     pointer-events: none;
 }
 nav .menu-items{
+    margin-left: -30px;
     margin-top: 40px;
     height: calc(100% - 90px);
     display: flex;
@@ -272,7 +273,7 @@ nav.close ~ .dashboard .top{
     border-radius: 50%;
 }
 .dashboard .dash-content{
-    padding-top: 50px;
+    padding-top: 10px;
 }
 .dash-content .title{
     display: flex;
@@ -356,7 +357,7 @@ nav.close ~ .dashboard .top{
 .activity-data .data .data-list{
     font-size: 18px;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 10px;
     white-space: nowrap;
     color: var(--text-color);
 }
@@ -456,3 +457,120 @@ nav.close ~ .dashboard .top{
         width: 100%;
     }
 }
+
+
+.activity .btntambah{
+    float: right;
+    margin-bottom: 20px;
+    cursor: pointer;
+    outline: 0;
+    color: #000;
+    background-color: #A9FF65;
+    border-color: #A9FF65;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+
+}
+.crud button{
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: 0;
+    color: #000;
+    background-color: #FF7C7C;
+    border-color: #FF7C7C;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+
+}
+.crud button:hover{
+    color: #707070;
+    background-color: #707070;
+    border-color: #707070;
+}
+.activity button:hover {
+    color: #fff;
+    background-color: #BEF096;
+    border-color: #BEF096;
+}
+
+.activity input{
+    height: 40px;
+}
+
+img .btntambah{
+    width: 100%;
+}
+
+.profile-image img{
+    width: 35%;
+   margin-top: -22rem;
+}
+.profile-image .tambah-form{
+    display: inline-block;
+    margin-left: 7%;   
+    
+}
+.profile-image .tambah-form input{
+    width: 500px;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+    padding: 12px;
+}
+.profile-image .tambah-form .label{
+  font-weight: 800;
+  margin-top: 10px;
+}
+.column,#username,#password{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.thre-column,#bb,#tb,#nohp{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.column select{
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+  
+}
+#date {
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+  
+}
+
+
+
+
+/* DropDown
+
+*/
+
+
