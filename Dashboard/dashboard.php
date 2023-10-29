@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="ahoy.css">
+    <link rel="stylesheet" href="dashboard.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -20,10 +20,10 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+               <img src="../img/logo.png" alt="">
             </div>
 
-            <span class="logo_name">CodingLab</span>
+            <span class="logo_name">SevenGym</span>
         </div>
 
         <div class="menu-items">
@@ -115,7 +115,8 @@
                 <div class="table-responsive">
                  <table class="table table-bordered">
                  <input type="text" placeholder="Search..">
-                    <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png" alt=""></button></a>
+                    <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png" alt=""> Tambah Pelanggan</button></a>
+                    <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png" alt=""> Tambah Pelatih</button></a>
                          <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -135,7 +136,7 @@
                             <td>@mdo</td>
                             <td>@mdo</td>
                             <td>@mdo</td>
-                            <td class="crud"><button style="background-color: #3A3F47"><img  src="../img/edit.png" alt=""></button><button><img src="../img/delete.png" alt=""></button></td>
+                            <td class="crud"><a href="UserEdit/useredit.php"><button style="background-color: #3A3F47"><img  src="../img/edit.png" alt=""></button><button><img src="../img/delete.png" alt=""></button></td></a>
                             </tr>
                          
                             <!-- <tr>
