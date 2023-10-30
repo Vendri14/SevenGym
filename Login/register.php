@@ -19,7 +19,7 @@
                      <div class="label">
                         Nama Lengkap
                      </div>
-                     <input type="text" name="nama_lengkap">
+                     <input type="text" name="nama_pelanggan">
                   </div>
                   <div class="field">
                      <div class="label">
