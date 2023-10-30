@@ -13,20 +13,18 @@
          <div class="form-outer">
             <form action="../koneksi/loginform.php" method="POST">
                <div class="page slide-page">
-                
-        
                <div class="page">
                   <div class="field">
                      <div class="label">
                         Username
                      </div>
-                     <input type="text">
+                     <input type="text" name="txtusername">
                   </div>
                   <div class="field">
                      <div class="label">
                         Password
                      </div>
-                     <input type="password">
+                     <input type="password" name="txtpass">
                   </div>
                   <div class="field btns">
                      <button class="submit">Masuk</button>
