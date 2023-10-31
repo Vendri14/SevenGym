@@ -128,11 +128,11 @@
                                 <th scope="col">Nama Lengkap</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Password</th>
-                                <th scope="col">Tanggal Lahir</th>
+                                <!-- <th scope="col">Tanggal Lahir</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Tinggi Badan</th>
                                 <th scope="col">Berat Badan</th>
-                                <th scope="col">No Hp</th>
+                                <th scope="col">No Hp</th> -->
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -141,13 +141,13 @@
                             $server = "localhost";
                             $username = "root";
                             $password = "";
-                            $db = "sevengym";
+                            $db = "gym";
                             $koneksi = mysqli_connect($server, $username, $password, $db);
 
                             if (mysqli_connect_errno()) {
                                 echo "Koneksi Gagal : " . mysqli_connect_error();
                             }
-                            $query_sql = "SELECT * FROM user";
+                            $query_sql = "SELECT pelanggan.nama_pelanggan, user.username, user.password FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user";
                             $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -159,7 +159,7 @@
                                         <?php echo ++$no; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['nama_lengkap']; ?>
+                                        <?php echo $result['nama_pelanggan']; ?>
                                     </td>
                                     <td>
                                         <?php echo $result['username']; ?>
@@ -167,7 +167,7 @@
                                     <td>
                                         <?php echo $result['password']; ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <?php echo $result['tanggal_lahir']; ?>
                                     </td>
                                     <td>
@@ -181,7 +181,7 @@
                                     </td>
                                     <td>
                                         <?php echo $result['nohp']; ?>
-                                    </td>
+                                    </td> -->
                                     <td class="crud"><a href="UserEdit/useredit.php"><button
                                                 style="background-color: #3A3F47"><img src="../img/edit.png"
                                                     alt=""></button><button><img src="../img/delete.png" alt=""></button>
