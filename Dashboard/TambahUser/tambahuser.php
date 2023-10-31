@@ -121,7 +121,7 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-                        <select name="jenis_kelamin">
+                        <select style="width:230px;" name="jenis_kelamin">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
@@ -129,7 +129,7 @@
 
                      <div class="label">
                         Tanggal Lahir <br>
-                        <input type="date" name="tanggal_lahir" id="date">
+                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date">
                      </div>
                      <!-- <div class="label">
                         Akhir Berlanggan <br>

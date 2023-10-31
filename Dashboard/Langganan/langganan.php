@@ -11,7 +11,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="langganan.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -20,6 +20,83 @@
 </head>
 
 <body>
+
+<div id="myModal" class="modal">
+            <div class="modal-content">
+                <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+                <h2>Tambah Data Berlangganan</h2>
+                <input style="padding: 12px;" type="text" placeholder="Search..">
+                <!-- <p>This is a simple pop-up created with HTML and JavaScript.</p> -->
+                <table class="table table-bordered">
+
+                <div class="label">
+                        <label for="">Jenis Berlangganan</label>
+                        <br>
+                        <select name="jenis_kelamin">
+                        <option>Bulanan</option>
+                        <option>Harian</option>
+                     </select>
+                     </div>
+                     <div class="label">
+                        Lama Berlangganan <br>
+                        <input type="text" name="tanggal_lahir" id="date">
+                     </div>
+
+                        <label for="">Pilih User</label>
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $server = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $db = "sevengym";
+                            $koneksi = mysqli_connect($server, $username, $password, $db);
+
+                            if (mysqli_connect_errno()) {
+                                echo "Koneksi Gagal : " . mysqli_connect_error();
+                            }
+                            $query_sql = "SELECT * FROM user";
+                            $sql= mysqli_query($koneksi, $query_sql);
+                            $no = 1;
+                            ?>
+                            <?php
+                            while ($result = mysqli_fetch_assoc($sql)) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php echo ++$no; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $result['nama_lengkap']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $result['username']; ?>
+                                    </td>
+                             
+                                    <td class="crud"><a href="UserEdit/useredit.php"><button
+                                                style="background-color: #3A3F47"><img src="../img/edit.png"
+                                                    alt=""></button><button><img src="../img/delete.png" alt=""></button>
+                                    </td></a>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <img src="../../img/profilephoto.png" alt="">   
+                   
+            </div>
+            </div>
+    
     <nav>
         <div class="logo-name">
             <div class="logo-image">
@@ -31,11 +108,11 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="dashboard.php">
+                <li><a href="../dashboard.php">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">User</span>
                     </a></li>
-                <li><a href="Langganan/langganan.php">
+                <li><a href="#">
                         <i class="uil uil-files-landscapes"></i>
                         <span class="link-name">Langganan</span>
                     </a></li>
@@ -74,6 +151,7 @@
         </div>
     </nav>
 
+
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
@@ -87,41 +165,23 @@
         </div>
 
         <div class="dash-content">
-            <div class="overview">
-                <div class="title">
-                    <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Dashboard</span>
-                </div>
-
-                <div class="boxes">
-                    <div class="box box1">
-                        <span class="text">Total User</span>
-                        <span class="number">50,120</span>
-                    </div>
-                    <div class="box box2">
-                        <span class="text">User Pelatih</span>
-                        <span class="number">20,120</span>
-                    </div>
-                    <div class="box box3">
-                        <span class="text">User Pelanggan</span>
-                        <span class="number">10,120</span>
-                    </div>
-                </div>
-            </div>
+        <!-- The modal -->
+        
+        
+            
 
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
-                    <span class="text">Data User</span>
+                    <span class="text">Data Pelanggan</span>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <input type="text" placeholder="Search..">
-                        <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelanggan</button></a>
-                        <a href="TambahPelatih/tambahpelatih.php"><button class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelatih</button></a>
+                        <input style="padding: 12px;" type="text" placeholder="Search..">
+                        <a href=""> <button style="border-right:0;" id="pilih">Proses Transaksi <button style="border-left: 0;" id="pilih">Sudah Berlangganan</button></button> </a>
+                        <button onclick="openModal()" class="btntambah"><img src="../img/Vector.png"
+                                    alt=""> Tambah Pelanggan Berlangganan</button>
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -197,9 +257,15 @@
 
             </div>
         </div>
+
+      
+
+            <!-- The modal -->
+            
     </section>
 
-    <script src="../JS/dashboard.js"></script>
+    <script src="../../JS/dashboard.js"></script>
+    <script src="../../JS/modal.js"></script>
 </body>
 
 </html>
