@@ -10,7 +10,7 @@ $tb = $_POST["tb"];
 $bb = $_POST["bb"];
 $nohp = $_POST["nohp"];
 
-$query_sql = "INSERT INTO user (id_user, username, password) VALUES ('id_user','$username','$password')";
+$query_sql = "INSERT INTO user (id_user, username, password, id_level) VALUES ('id_user','$username','$password','2')";
 if($koneksi->query($query_sql)===true){
     echo "berhasil";
 
@@ -20,7 +20,7 @@ if($koneksi->query($query_sql)===true){
     // $ID_User = $rowID_User['id_user']+1;
 
     $ID_User = mysqli_insert_id($koneksi);
-    $sql = "INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, tb, bb, id_trainner, profil_pelanggan, nohp, tanggal_lahir, jenis_kelamin, id_user, id_level) VALUES ('id_pelanggan','$nama_lengkap','$tb','$bb','','','$nohp','$tanggal_lahir','$jenis_kelamin','$ID_User','2')";
+    $sql = "INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, tb, bb, profil_pelanggan, nohp, tanggal_lahir, jenis_kelamin, id_user, id_level) VALUES ('id_pelanggan','$nama_lengkap','$tb','$bb','','$nohp','$tanggal_lahir','$jenis_kelamin','$ID_User','2')";
    
      if($koneksi->query($sql)===true){
         echo "Registrasi Berhasil";

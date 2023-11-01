@@ -120,7 +120,7 @@
                         <input type="text" placeholder="Search..">
                         <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png"
                                     alt=""> Tambah Pelanggan</button></a>
-                        <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png"
+                        <a href="TambahPelatih/tambahpelatih.php"><button class="btntambah"><img src="../img/Vector.png"
                                     alt=""> Tambah Pelatih</button></a>
                         <thead>
                             <tr>
@@ -147,12 +147,12 @@
                             if (mysqli_connect_errno()) {
                                 echo "Koneksi Gagal : " . mysqli_connect_error();
                             }
-                            $query_sql = "SELECT pelanggan.nama_pelanggan, user.username, user.password FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user";
+                            $query_sql = "SELECT pelanggan.id_pelanggan, pelanggan.nama_pelanggan, user.username, user.password FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user";
                             $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
                             <?php
-                            while ($result = mysqli_fetch_assoc($sql)) {
+                            while ($result = mysqli_fetch_array($sql)) {
                                 ?>
                                 <tr>
                                     <td>
@@ -182,7 +182,8 @@
                                     <td>
                                         <?php echo $result['nohp']; ?>
                                     </td> -->
-                                    <td class="crud"><a href="UserEdit/useredit.php"><button
+                                    <td
+                                    class="crud"><a href= "UserEdit/useredit.php?update=<?= $result['id_pelanggan'];?>"><button
                                                 style="background-color: #3A3F47"><img src="../img/edit.png"
                                                     alt=""></button><button><img src="../img/delete.png" alt=""></button>
                                     </td></a>

@@ -1,3 +1,40 @@
+<?php
+require "../koneksi/konesi.php";
+if(isset($_POST["btn_next"])){
+   $newusername=$_POST['username'];
+
+   function isUsernameUnique($koneksi, $username){
+      if(isset($_POST["btn_next"])){
+         $newusername=$_POST['username'];
+      
+      $sql = "SELECT count(username) as cek_username FROM user WHERE username = '$newusername'";
+      $stmt = $koneksi->prepare($sql);
+      $stmt->bindParam("s", $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $stmt->close();
+   
+      if($result->num_rows > 0){
+         $row = $result->fetch_assoc();
+         $cek = $row["cek_username"];
+         if($cek != 0){
+            return false;
+         }else{
+            return true;
+         }
+      }
+      }     
+   }
+   if(isUsernameUnique($koneksi, $newusername)){
+      echo '<script language ="javascript">
+      alert ("Username Disimpan"); document.location="../Login/register.php"; </script>';
+   }else{
+      echo '<script language ="javascript">
+      alert ("Username Sudah Ada"); document.location="../Login/register.php"; </script>';
+   }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
    <head>
@@ -28,10 +65,10 @@
                      <input type="text" name="username">
                   </div>
                   <div class="field">
-                     <button class="firstNext next">Next</button>
+                     <button class="firstNext next" name="btn_next">Next</button>
                   </div>
                </div>
-               <div class="page">
+               <div class="page" name="next_pass">
                   
                   <div class="field">
                      <div class="label">
