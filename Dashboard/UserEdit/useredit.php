@@ -87,12 +87,12 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Edit Data Pelanggan</span>
+                    <span class="text">Tambah Data Pelanggan</span>
                 </div>
             </div>
 
             <div class="profile-image">
-             <form action="">
+             <form action="tambahuserform.php" method="POST">
                 <img src="../../img/profilephoto.png" alt="">
                 
                 <?php
@@ -122,20 +122,32 @@
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
                     <div class="label">
-                   Nama Pelanggan
+                   Nama User
                     </div>
+<<<<<<< HEAD
                    <input type="text" name="nama_pelanggan" value="<?php echo $data['nama_pelanggan'];?>" placeholder="Ex : SEVRI VENDRIAN" >
+=======
+                   <input type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" >
+>>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
 
                    
                    <div class="column">
                         <div class="label">
                         <label for="">Username</label> 
+<<<<<<< HEAD
                         <input type="text" name="username" value="<?php echo $data['username'];?> "placeholder="Ex : SEVRI VENDRIAN" id="username">
+=======
+                        <input type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username">
+>>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
                         </div>
                    
                      <div class="label">
                      <label for="">Password</label>
+<<<<<<< HEAD
                      <input type="text" name="password" value="<?php echo $data['password'];?> "placeholder="Ex : SEVRI VENDRIAN" id="password">
+=======
+                     <input type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password">
+>>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
                         </div>
                    </div>
 
@@ -144,38 +156,46 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
+<<<<<<< HEAD
                         <select name="jenis_kelamin" value=<?php echo $data['jenis Kelamin'];?>>
+=======
+                        <select style="width:230px;" name="jenis_kelamin">
+>>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
                      </div>
 
                      <div class="label">
-                        Tanggal Berlanggan <br>
-                        <input type="date" name="tanggal_lahir" id="date">
+                        Tanggal Lahir <br>
+                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date">
                      </div>
-                     <div class="label">
+                     <!-- <div class="label">
                         Akhir Berlanggan <br>
                         <input type="date" name="tanggal_lahir" id="date">
-                     </div>
+                     </div> -->
                   </div>
                    
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
+<<<<<<< HEAD
                         <input type="text" name="tanggal_lahir" value="<?php echo $data['bb'];?> "placeholder="Ex : SEVRI VENDRIAN" id="bb">
+=======
+                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
+>>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
                      </div>
-                     <button>Simpan</button>
+                     <button>Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
                      <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>
