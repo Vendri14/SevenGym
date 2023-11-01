@@ -11,7 +11,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="langganan.css">
+    <link rel="stylesheet" href="userlangganan.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -91,16 +91,14 @@
                             ?>
                         </tbody>
                     </table>
-
-                    <img src="../../img/profilephoto.png" alt="">   
-                   
+                    <img src="../../img/profilephoto.png" alt="" id="profile">   
             </div>
             </div>
     
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../img/logo.png" alt="">
+                <img src="../../img/logo.png" alt="">
             </div>
 
             <span class="logo_name">SevenGym</span>
