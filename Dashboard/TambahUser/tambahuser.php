@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+    require("../../koneksi/konesi.php");
+
+            if (!isset($_SESSION["islogin"])) {
+                header("Location: ../../Login/login.php");
+            }
+?>
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -52,7 +61,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href=" ../../koneksi/logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -92,7 +101,7 @@
             </div>
 
             <div class="profile-image">
-             <form action="tambahuserform.php" method="POST">
+             <form action="../../koneksi/tambahuserpelanggan.php" method="POST">
                 <img src="../../img/profilephoto.png" alt="">
                 
                 
@@ -152,7 +161,7 @@
                          NoHp <br>
                         <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
                      </div>
-                     <button>Tambah</button>
+                     <button class="tambah">Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
                      <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>

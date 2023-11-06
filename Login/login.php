@@ -1,3 +1,12 @@
+<?php
+    require("../koneksi/konesi.php");
+    session_start();
+    if (isset($_SESSION["islogin"])) {
+        header("Location: ../Dashboard/dashboard.php");
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
    <head>
@@ -27,7 +36,7 @@
                      <input type="password" name="txtpass">
                   </div>
                   <div class="field btns">
-                     <button class="submit">Masuk</button>
+                     <button class="masuk">Masuk</button>
                   </div>
                </div>
             </form>

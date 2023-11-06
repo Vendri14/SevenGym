@@ -2,7 +2,7 @@
     $server     = "localhost";
     $username   = "root";
     $password   = "";
-    $db         = "gym";
+    $db         = "sevengym";
     $koneksi    = mysqli_connect($server,$username,$password,$db);
 
     if (mysqli_connect_errno()) {

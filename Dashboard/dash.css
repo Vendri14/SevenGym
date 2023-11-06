@@ -514,6 +514,19 @@ nav.close ~ .dashboard .top{
 .activity input{
     height: 40px;
 }
+#pilih,#pilih2{
+    margin-right: -20px;
+    margin-left: 20px;;
+    background-color: #fff;
+    border-width: .25px;
+    width: 190px;
+    height: 40px;
+    border-radius: 0px;
+}
+#pilih,#pilih2:hover{
+    background-color: var(--box1-color);
+    color: #000;
+}
 
 /* TABLE
 

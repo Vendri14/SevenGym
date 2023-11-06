@@ -20,7 +20,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="dashboard2.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -128,10 +128,10 @@
                     <table class="table table-bordered">
                         <input type="text" placeholder="Search..">
                         <a href="dashboard.php"><button style="border-right:0;" id="pilih">Akun Pelanggan </button></a> <a href="dashboard2.php"><button style="border-left: 0;" id="pilih2">Akun Pelatih</button></a>
-                        <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelanggan</button></a>
-                        <!-- <a href="TambahPelatih/tambahpelatih.php"><button class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelatih</button></a> -->
+                        <!-- <a href="TambahUser/tambahuser.php"><button class="btntambah"><img src="../img/Vector.png"
+                                    alt=""> Tambah Pelanggan</button></a> -->
+                        <a href="TambahPelatih/tambahpelatih.php"><button class="btntambah"><img src="../img/Vector.png"
+                                    alt=""> Tambah Pelatih</button></a>
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -149,7 +149,7 @@
                         <tbody>
                             <?php
                            
-                            $query_sql = "SELECT pelanggan.id_pelanggan, pelanggan.nama_pelanggan, user.username, user.password FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user";
+                            $query_sql = "SELECT user.id_user,trainner.nama_lengkap,trainner.deskripsi_pelatih,user.username,user.password from trainner join user on user.id_user = trainner.id_user";
                             $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -161,7 +161,7 @@
                                         <?php echo $no++; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['nama_pelanggan']; ?>
+                                        <?php echo $result['nama_lengkap']; ?>
                                     </td>
                                     <td>
                                         <?php echo $result['username']; ?>
@@ -185,10 +185,10 @@
                                         <?php echo $result['nohp']; ?>
                                     </td> -->
                                     <td class="crud">
-                                        <a href= "UserEdit/useredit.php?update=<?= $result['id_pelanggan'];?>">
+                                        <a href= "UserEdit/useredit.php?update=<?= $result['id_user'];?>">
                                         <button style="background-color: #3A3F47"><img src="../img/edit.png"alt=""></button></a>
                                         
-                                        <a href="../koneksi/hapususer.php?id_pelanggan=<?= $result['id_pelanggan']; ?>"><button><img src="../img/delete.png" alt="" class="hapus"></button></a>
+                                        <a href="../koneksi/hapususer.php?id_pelanggan=<?= $result['id_user']; ?>"><button><img src="../img/delete.png" alt="" class="hapus"></button></a>
                                     </td>
                                 </tr>
                                 

@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="tambahpelatih.css">
+    <link rel="stylesheet" href="tambahpelatihh.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -92,7 +92,7 @@
             </div>
 
             <div class="profile-image">
-             <form action="">
+             <form action="../../koneksi/tambahuserpelatih.php" method="POST">
                 <img src="../../img/profilephoto.png" alt="">
                 
                 
@@ -101,22 +101,22 @@
                     <div class="label">
                    Nama Pelanggan
                     </div>
-                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" >
+                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih">
 
                    <div class="label">
                          Deskripsi Pelatih <br>
-                        <input style="height: 140px;" type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" >
                      </div>
                    
                    <div class="column">
                         <div class="label">
                         <label for="">Username</label> 
-                        <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="username">
+                        <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="username" name="username">
                         </div>
                    
                      <div class="label">
                      <label for="">Password</label>
-                     <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="password">
+                     <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="password" name="password">
                         </div>
                    </div>
 
@@ -139,17 +139,21 @@
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
-                        <input type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="bb">
+                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="tanggal_lahir" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                     </div>
+                    <div class="label">
+                         Harga Pelatih <br>
+                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="tb">
                      </div>
                      <button>Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>

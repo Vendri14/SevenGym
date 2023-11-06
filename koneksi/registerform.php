@@ -1,5 +1,8 @@
 <?php
 require 'konesi.php';
+
+if (!isset($_POST['submit'])) {
+
 $nama_lengkap = $_POST["nama_pelanggan"];
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -10,27 +13,36 @@ $tb = $_POST["tb"];
 $bb = $_POST["bb"];
 $nohp = $_POST["nohp"];
 
-$query_sql = "INSERT INTO user (id_user, username, password, id_level) VALUES ('id_user','$username','$password','2')";
-if($koneksi->query($query_sql)===true){
-    echo "berhasil";
+$queryuser = " INSERT INTO user VALUES ('','$username','$password','2')";
+$querypelanggan = "INSERT INTO pelanggan VALUES ('','$nama_lengkap','$tb','$bb','','$nohp','$tanggal_lahir','$jenis_kelamin',(SELECT user.id_user FROM user order by user.id_user desc limit 1),'2')";
 
-    // $queryID_User = "SELECT user.id_user FROM user ORDER BY user.id_user DESC LIMIT 1";
-    // $getID_User = mysqli_query($koneksi, $queryID_User);
-    // $rowID_User = mysqli_fetch_array($getID_User);
-    // $ID_User = $rowID_User['id_user']+1;
 
-    $ID_User = mysqli_insert_id($koneksi);
-    $sql = "INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, tb, bb, profil_pelanggan, nohp, tanggal_lahir, jenis_kelamin, id_user, id_level) VALUES ('id_pelanggan','$nama_lengkap','$tb','$bb','','$nohp','$tanggal_lahir','$jenis_kelamin','$ID_User','2')";
-   
-     if($koneksi->query($sql)===true){
-        echo "Registrasi Berhasil";
-        header("Location:../Login/login.php");
-     }else{
-        echo "Error : ".$sql. "<br>". $koneksi->error;
-     }
-}else{
-    echo "Error : " .$query_sql . "<br>" . $koneksi->error;
+
+if (empty($username) || empty($password)) {
+   echo '<script>alert("Silahkan Input Username dan Password");</script>';
+   echo '<script>window.location = "../Login/register.php";</script>';
+   exit;
+ 
+}  elseif ($password != $konfirpass) {
+   echo '<script>alert("Konfirmasi Password Salah");</script>';
+   echo '<script>window.location = "../Login/register.php";</script>';
+   exit;
+
+   }
+   else {
+      mysqli_query($koneksi,$queryuser);
+      mysqli_query($koneksi,$querypelanggan);
+      if (mysqli_affected_rows($koneksi) > 0) {
+         echo '<script>alert("Data Berhasil Ditambahkan");</script>';
+         echo '<script>window.location = "../Login/login.php";</script>';
+      }
+  
 }
+
+}
+
+
+
 // $result = mysqli_query($koneksi, $query_sql);
 
 // if($result){

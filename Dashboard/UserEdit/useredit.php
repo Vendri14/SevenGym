@@ -1,3 +1,21 @@
+<?php 
+                require("../../koneksi/konesi.php");
+                
+                $id = $_GET['update'];
+                
+                $query = mysqli_query($koneksi,"SELECT pelanggan.nama_pelanggan, user.username,user.password,pelanggan.jenis_kelamin,pelanggan.tanggal_lahir,pelanggan.bb,pelanggan.tb,pelanggan.nohp FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user where user.id_user = '$id' ");
+                $result = mysqli_fetch_assoc($query);
+                $nama = $result['nama_pelanggan'];
+
+                session_start();
+                if (!isset($_SESSION["islogin"])) {
+                    header("Location: ../../Login/login.php");
+    }
+                
+                
+                
+                ?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -52,9 +70,9 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="../../koneksi/logout.php">
                     <i class="uil uil-signout"></i>
-                    <span class="link-name">Logout</span>
+                    <a href=""><span class="link-name">Logout</span></a>
                 </a></li>
 
                 <li class="mode">
@@ -87,67 +105,34 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Tambah Data Pelanggan</span>
+                    <span class="text">Edit Data Pelanggan</span>
                 </div>
             </div>
-
+            
+           
             <div class="profile-image">
-             <form action="tambahuserform.php" method="POST">
+             <form action="../../koneksi/updateuserpelanggan.php" method="POST">
                 <img src="../../img/profilephoto.png" alt="">
                 
-                <?php
-                $server = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "gym";
-                $koneksi = mysqli_connect($server, $username, $password, $db);
-
-                if (mysqli_connect_errno()) {
-                    echo "Koneksi Gagal : " . mysqli_connect_error();
-                }
-
-                // $query_sql = "select * from pelanggan";
-                // if($koneksi->query($query_sql)===true){
-                // echo "berhasil";
-
-                // $ID = isset($_POST[""]) ? $_POST[""] :"";
-
-                // $id = isset($_GET["id_pelanggan"]) ? intval($_GET["id_pelanggan"]) :null;
-                //$id = isset($_GET["id"]) ? intval($_GET["id"]) :null;
-                //$query = mysqli_query($koneksi, "select * from pelanggan where id_pelanggan = '$id'");
-                $sql = mysqli_query($koneksi, "select * from user, pelanggan where user.id_user = pelanggan.id_user and id_pelanggan='$_GET[update]'");
-                $data = mysqli_fetch_array($sql);
-                //}
-                ?>
+                
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
                     <div class="label">
                    Nama User
                     </div>
-<<<<<<< HEAD
-                   <input type="text" name="nama_pelanggan" value="<?php echo $data['nama_pelanggan'];?>" placeholder="Ex : SEVRI VENDRIAN" >
-=======
-                   <input type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" >
->>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
+                   <input type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["nama_pelanggan"]; ?>">
 
                    
                    <div class="column">
                         <div class="label">
                         <label for="">Username</label> 
-<<<<<<< HEAD
-                        <input type="text" name="username" value="<?php echo $data['username'];?> "placeholder="Ex : SEVRI VENDRIAN" id="username">
-=======
-                        <input type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username">
->>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
+                        <input type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username" value="<?= $result["username"]; ?>">
                         </div>
+                        
                    
                      <div class="label">
                      <label for="">Password</label>
-<<<<<<< HEAD
-                     <input type="text" name="password" value="<?php echo $data['password'];?> "placeholder="Ex : SEVRI VENDRIAN" id="password">
-=======
-                     <input type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password">
->>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
+                     <input type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password" value="<?= $result["password"]; ?>">
                         </div>
                    </div>
 
@@ -156,11 +141,7 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-<<<<<<< HEAD
-                        <select name="jenis_kelamin" value=<?php echo $data['jenis Kelamin'];?>>
-=======
-                        <select style="width:230px;" name="jenis_kelamin">
->>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
+                        <select style="width:230px;" name="jenis_kelamin" value="<?= $result["jenis_kelamin"]; ?>">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
@@ -168,7 +149,7 @@
 
                      <div class="label">
                         Tanggal Lahir <br>
-                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date">
+                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date" value="<?= $result["tanggal_lahir"]; ?>">
                      </div>
                      <!-- <div class="label">
                         Akhir Berlanggan <br>
@@ -179,35 +160,30 @@
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
-<<<<<<< HEAD
-                        <input type="text" name="tanggal_lahir" value="<?php echo $data['bb'];?> "placeholder="Ex : SEVRI VENDRIAN" id="bb">
-=======
-                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
->>>>>>> 85a84d20d6992681be45a60d34c983837fea9e33
+                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb" value="<?= $result["bb"]; ?>">
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["tb"]; ?>">
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["nohp"]; ?>">
                      </div>
-                     <button>Tambah</button>
+                     <button class="tambah">Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
                      <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>
               </div>
 
-             
-
-            
+              
+              
             </div>
         </div>
     </section>
-
+    
     <script src="../../JS/dashboard.js"></script>
 </body>
 </html>
