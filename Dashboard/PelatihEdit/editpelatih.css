@@ -419,7 +419,7 @@ nav.close ~ .dashboard .top{
 }
 @media (max-width: 400px) {
     nav{
-        width: 10px;
+        width: 0px;
     }
     nav.close{
         width: 73px;
@@ -472,10 +472,9 @@ nav.close ~ .dashboard .top{
     line-height: 1.5;
     text-align: center;
     border: 1px solid transparent;
-    padding: 7px 12px;
-    margin-left: 20px;
+    padding: 6px 12px;
     font-size: 16px;
-    border-radius: 1rem;
+    border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     
 
@@ -514,21 +513,82 @@ nav.close ~ .dashboard .top{
 .activity input{
     height: 40px;
 }
-#pilih,#pilih2{
-    margin-right: -20px;
-    margin-left: 20px;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border-width: .25px;
-    width: 190px;
-    height: 40px;
-    border-radius: 0px;
-}
-#pilih,#pilih2:hover{
-    background-color: var(--box1-color);
-    color: #000;
+
+img .btntambah{
+    width: 100%;
 }
 
-/* TABLE
+.profile-image img{
+    width: 35%;
+   margin-top: -53rem;
+}
+.profile-image .tambah-form{
+    display: inline-block;
+    margin-left: 7%;   
+    
+}
+.profile-image .tambah-form input{
+    width: 500px;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+    padding: 12px;
+}
+.profile-image .tambah-form .label{
+  font-weight: 800;
+  margin-top: 10px;
+}
+.column,#username,#password{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.thre-column,#bb,#tb,#nohp{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.column select{
+    width: 230px;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+    padding: 12px;
+
+}
+#date {
+    
+    width: 230px;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+  
+}
+.profile-image .tambah-form button{
+    border-radius: 20px;
+    width: 30%;
+    height: 50px;
+    float: right;
+    margin-top: 15px;
+    border-width: 0px;
+    background-color: #BEF096;
+    margin-left: 16px;
+    margin-bottom: 40px;
+}
+
+/* .dash-content button{
+    margin-top: -5rem;
+    display: inline;
+} */
+
+
+
+
+/* DropDown
 
 */
+
+

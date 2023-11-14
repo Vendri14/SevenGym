@@ -1,3 +1,16 @@
+<?php
+
+    session_start();
+    require("../../koneksi/konesi.php");
+
+    // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
+    // $result = mysqli_fetch_assoc($query);
+
+            if (!isset($_SESSION["islogin"])) {
+                header("Location: ../../Login/login.php");
+            }
+?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -20,10 +33,10 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+               <img src="../../imag/logo.png" alt="">
             </div>
 
-            <span class="logo_name">CodingLab</span>
+            <span class="logo_name">SevenGym</span>
         </div>
 
         <div class="menu-items">
@@ -157,7 +170,6 @@
                      </div>
                      <button>Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
-                     <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>
               </div>
 

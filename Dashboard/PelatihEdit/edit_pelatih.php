@@ -1,15 +1,17 @@
 <?php
-
-    session_start();
     require("../../koneksi/konesi.php");
+    $id = $_GET['update'];
+    
+$query = mysqli_query($koneksi,"SELECT trainner.nama_lengkap,user.id_user, trainner.deskripsi_pelatih, user.username,user.password,trainner.jenis_kelamin,trainner.tanggal_lahir,trainner.bb,trainner.tb,trainner.nohp,trainner.harga_trainner from trainner join user on user.id_user = '$id'");
 
-    // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
-    // $result = mysqli_fetch_assoc($query);
+$result = mysqli_fetch_assoc($query);
 
-            if (!isset($_SESSION["islogin"])) {
-                header("Location: ../../Login/login.php");
-            }
+session_start();
+if (!isset($_SESSION["islogin"])) {
+    header("Location: ../../Login/login.php");
+}
 ?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -21,7 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="tambahuserr.css">
+    <link rel="stylesheet" href="editpelatih.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -32,7 +34,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="../../img/logo.png" alt="">
+               <img src="../../imag/logo.png" alt="">
             </div>
 
             <span class="logo_name">SevenGym</span>
@@ -64,7 +66,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href=" ../../koneksi/logout.php">
+                <li><a href="#">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -99,32 +101,39 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Tambah Data Pelanggan</span>
+                    <span class="text">Edit Data Pelatih</span>
                 </div>
             </div>
 
             <div class="profile-image">
-             <form action="../../koneksi/tambahuserpelanggan.php" method="POST" enctype="multipart/form-data">
-                <img src="../../img/profilephoto.png" alt="" id="showimg">
+             <form action="../../koneksi/updateuserpelatih.php" method="POST">
+                <img src="../../img/profilephoto.png" alt="">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
-                    <div class="label">
-                   Nama User
+                <div class="label">
                     </div>
-                   <input type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" >
+                   <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+                    <div class="label">
+                   Nama Pelatih
+                    </div>
+                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih" value="<?= $result['nama_lengkap']; ?>">
 
+                   <div class="label">
+                         Deskripsi Pelatih <br>
+                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result['deskripsi_pelatih']; ?>" >
+                     </div>
                    
                    <div class="column">
                         <div class="label">
                         <label for="">Username</label> 
-                        <input type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username">
+                        <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="username" name="username" value="<?= $result['username']; ?>">
                         </div>
                    
                      <div class="label">
                      <label for="">Password</label>
-                     <input type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password">
+                     <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="password" name="password" value="<?= $result['password']; ?>">
                         </div>
                    </div>
 
@@ -133,44 +142,39 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-                        <select style="width:230px;" name="jenis_kelamin">
+                        <select name="jenis_kelamin" value="<?= $result['jenis_kelamin']; ?>">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
                      </div>
-
                      <div class="label">
                         Tanggal Lahir <br>
-                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date">
+                        <input type="date" name="tanggal_lahir" id="date" value="<?= $result['tanggal_lahir']; ?>">
                      </div>
-                     <!-- <div class="label">
-                        Akhir Berlanggan <br>
-                        <input type="date" name="tanggal_lahir" id="date">
-                     </div> -->
                   </div>
                    
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
-                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
+                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb" value="<?= $result['bb']; ?>">
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result['tb']; ?>">
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result['nohp']; ?>">
                      </div>
-                     <button class="tambah">Tambah</button>
-                     <label style="margin-top: 15px" class="custom-file-upload">
-                     Pilih Profile
-                        <input type="file" name="gambar" id="gambar"/>
-                    </label>
-                     <!-- <button style="background-color: #707070; color: #fff;">Pilih Profile</button> -->
-                     <!-- <button style="background-color: #FF7C7C ">Hapus Profile</button> -->
+                    <div class="label">
+                         Harga Pelatih <br>
+                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result['harga_trainner']; ?>">
+                     </div>
+                     <button>Tambah</button>
+                     <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
+                     <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>
               </div>
 
@@ -182,6 +186,5 @@
     </section>
 
     <script src="../../JS/dashboard.js"></script>
-    <script src="../../JS/showpict.js"></script>
 </body>
 </html>

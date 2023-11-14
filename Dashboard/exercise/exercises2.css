@@ -472,9 +472,10 @@ nav.close ~ .dashboard .top{
     line-height: 1.5;
     text-align: center;
     border: 1px solid transparent;
-    padding: 6px 12px;
+    padding: 7px 12px;
+    margin-left: 20px;
     font-size: 16px;
-    border-radius: .25rem;
+    border-radius: 1rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     
 
@@ -505,7 +506,7 @@ nav.close ~ .dashboard .top{
     border-color: #707070;
 }
 .activity button:hover {
-    color: #fff;
+    color: #000;
     background-color: #BEF096;
     border-color: #BEF096;
 }
@@ -513,80 +514,113 @@ nav.close ~ .dashboard .top{
 .activity input{
     height: 40px;
 }
+.activity{
+    margin-top: 90px ;
+}
 
-img .btntambah{
+#pilih,#pilih2{
+    margin-right: -20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-width: .25px;
+    width: 190px;
+    height: 40px;
+    border-radius: 0px;
+}
+#beginner,#medium,#expert{
+    margin-right: -10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-width: .25px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+#beginner,#beginner:hover{
+    background-color: var(--box1-color);
+    color: #000;
+}
+#medium:hover{
+    background-color: var(--box1-color);
+    color: #000;
+}
+#expert:hover{
+    background-color: var(--box1-color);
+    color: #000;
+}
+#cek{
+    width: 20px;
+    background: var(--box1-color);
+  
+}
+#pilih2,#pilih:hover{
+    background-color: var(--box1-color);
+    color: #000;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-}
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1rm;
+  }
+  
+  /* Styling for the modal content */
+  .modal-content {
+    background-color: #fff;
+    width: 70%;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
 
-.profile-image img{
-    width: 35%;
-   margin-top: -20rem;
-}
-.profile-image .tambah-form{
+  .modal input{
+    width: 200px;
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .modal table{
+    width: 100%;
+  }
+ .container-flex{
     display: inline-block;
-    margin-left: 7%;   
-    
-}
-.profile-image .tambah-form input{
-    width: 500px;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    padding: 12px;
-}
-.profile-image .tambah-form .label{
-  font-weight: 800;
-  margin-top: 10px;
-}
-.column,#username,#password{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
+  }
 
-.thre-column,#bb,#tb,#nohp{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
+  .table-borderless > tbody > tr > td,
+  .table-borderless > tbody > tr > th,
+  .table-borderless > tfoot > tr > td,
+  .table-borderless > tfoot > tr > th,
+  .table-borderless > thead > tr > td,
+  .table-borderless > thead > tr > th {
+      border: none;
+  }
 
-
-.column select{
-    width: 100%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-  
-}
-#date {
-    width: 100%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-  
-}
-.profile-image .tambah-form button{
-    border-radius: 20px;
-    width: 30%;
+  .modal-content button{
+    width: 160px;
     height: 50px;
     float: right;
-    margin-top: 15px;
-    border-width: 0px;
-    background-color: #BEF096;
-    margin-left: 16px;
-    margin-bottom: 40px;
-}
+    margin-top: 20px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: var(--box1-color);
+    color: #000;
+    padding: 10 10px;
+  }
+  .modal-content button:hover{
+    background-color: #3A3B3C;
+    color: #fff;
+  }
 
-/* .dash-content button{
-    margin-top: -5rem;
-    display: inline;
-} */
+  
+  
 
-
-
-
-/* DropDown
+/* TABLE
 
 */
-
-

@@ -3,9 +3,9 @@
                 
                 $id = $_GET['update'];
                 
-                $query = mysqli_query($koneksi,"SELECT pelanggan.nama_pelanggan, user.username,user.password,pelanggan.jenis_kelamin,pelanggan.tanggal_lahir,pelanggan.bb,pelanggan.tb,pelanggan.nohp FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user where user.id_user = '$id' ");
+                $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.nama_pelanggan,pelanggan.profil_pelanggan, user.username,user.password,pelanggan.jenis_kelamin,pelanggan.tanggal_lahir,pelanggan.bb,pelanggan.tb,pelanggan.nohp FROM pelanggan JOIN user ON pelanggan.id_user = user.id_user where pelanggan.id_pelanggan = '$id' ");
                 $result = mysqli_fetch_assoc($query);
-                $nama = $result['nama_pelanggan'];
+          
 
                 session_start();
                 if (!isset($_SESSION["islogin"])) {
@@ -41,7 +41,7 @@
                <img src="images/logo.png" alt="">
             </div>
 
-            <span class="logo_name">CodingLab</span>
+            <span class="logo_name">SevenGym</span>
         </div>
 
         <div class="menu-items">
@@ -112,11 +112,14 @@
            
             <div class="profile-image">
              <form action="../../koneksi/updateuserpelanggan.php" method="POST">
-                <img src="../../img/profilephoto.png" alt="">
+                <img src="../../img/<?php echo $result['profil_pelanggan'];?>" alt="">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
+                <div class="label">
+                    </div>
+                   <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
                     <div class="label">
                    Nama User
                     </div>
@@ -172,7 +175,7 @@
                          NoHp <br>
                         <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["nohp"]; ?>">
                      </div>
-                     <button class="tambah">Tambah</button>
+                        <button class="tambah" value="update">Tambah</button>
                      <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
                      <button style="background-color: #FF7C7C ">Hapus Profile</button>
                 </form>

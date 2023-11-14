@@ -419,7 +419,7 @@ nav.close ~ .dashboard .top{
 }
 @media (max-width: 400px) {
     nav{
-        width: 10px;
+        width: 0px;
     }
     nav.close{
         width: 73px;
@@ -516,7 +516,7 @@ nav.close ~ .dashboard .top{
 }
 #pilih,#pilih2{
     margin-right: -20px;
-    margin-left: 20px;
+    margin-left: 20px;;
     margin-bottom: 30px;
     background-color: #fff;
     border-width: .25px;
@@ -524,7 +524,7 @@ nav.close ~ .dashboard .top{
     height: 40px;
     border-radius: 0px;
 }
-#pilih,#pilih2:hover{
+#pilih2,#pilih:hover{
     background-color: var(--box1-color);
     color: #000;
 }

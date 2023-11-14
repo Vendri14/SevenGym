@@ -102,7 +102,7 @@
                   </div>
                </div>
             </form>
-            <span>Sudah Punya Akun? <a href="#">Klik Disini</a></span>
+            <span>Sudah Punya Akun? <a href="login.php">Klik Disini</a></span>
          </div>
       </div>
       <script src="../JS/fungsi.js"></script>

@@ -14,8 +14,8 @@
 
     $sqluser = "INSERT INTO user VALUES ('','$username','$password','1')";
 
-    $sqlpelanggan = "INSERT INTO trainner (id_trainner,nama_lengkap,deskripsi_pelatih,tb,bb,harga_trainner,profil_trainner,id_user,id_level,tanggal_lahir) 
-                    VALUES ('','$nama_pelatih','$deskripsi','$tb','$bb','$harga_pelatih','',(SELECT user.id_user FROM user order by user.id_user desc limit 1),'1','$tgl_lhr')";
+    $sqlpelanggan = "INSERT INTO trainner (id_trainner,nama_lengkap,deskripsi_pelatih,tb,bb,harga_trainner,profil_trainner,id_user,id_level,tanggal_lahir,jenis_kelamin,nohp) 
+                    VALUES ('','$nama_pelatih','$deskripsi','$tb','$bb','$harga_pelatih','',(SELECT user.id_user FROM user order by user.id_user desc limit 1),'1','$tgl_lhr','$gender','$nohp')";
 
     $resultuser = mysqli_query($koneksi, $sqluser);
     $resultpelanggan = mysqli_query($koneksi, $sqlpelanggan);
