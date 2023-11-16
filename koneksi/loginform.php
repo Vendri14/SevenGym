@@ -21,6 +21,7 @@
                 $_SESSION["islogin"] = true;
                      echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
             }
+            
         }else{
             echo '<script>alert("User Tidak Ditemukan");</script>';
             echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
