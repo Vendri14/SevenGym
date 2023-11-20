@@ -193,31 +193,21 @@ session_start();
                                     alt=""> Tambah Pelanggan Berlangganan</button>
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Lengkap</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Tanggal Lahir</th>
-                                <th scope="col">Jenis Kelamin</th>
-                                <th scope="col">Tinggi Badan</th>
-                                <th scope="col">Berat Badan</th>
-                                <th scope="col">No Hp</th>
                                 <th scope="col"></th>
+                                <th scope="col">Nama Pelanggan</th>
+                                <th scope="col">Tanggal Masuk</th>
+                                <th scope="col">Tanggal Keluar</th>
+                                <th scope="col">Total Harga</th>
+                                <th scope="col">Lama Berlangganan</th>
+                                <th scope="col">Bukti Transaksi</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $server = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $db = "sevengym";
-                            $koneksi = mysqli_connect($server, $username, $password, $db);
-
-                            if (mysqli_connect_errno()) {
-                                echo "Koneksi Gagal : " . mysqli_connect_error();
-                            }
-                            $query_sql = "SELECT * FROM user";
-                            $sql= mysqli_query($koneksi, $query_sql);
+                          
+                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan";
+                          $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
                             <?php
@@ -225,35 +215,32 @@ session_start();
                                 ?>
                                 <tr>
                                     <td>
-                                        <?php echo ++$no; ?>
+                                        <?php echo $no++; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['nama_lengkap']; ?>
+                                        <?php echo $result['nama_pelanggan']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['username']; ?>
+                                        <?php echo $result['tanggal_masuk']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['password']; ?>
+                                        <?php echo $result['tanggal_keluar']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['tanggal_lahir']; ?>
+                                        <?php echo $result['total_harga']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['jenis_kelamin']; ?>
+                                        <?php echo $result['lama_berlangganan']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['tb']; ?>
+                                        <img src="../../img/<?php echo $result['bukti_transaksi']; ?>" alt="">
                                     </td>
                                     <td>
-                                        <?php echo $result['bb']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $result['nohp']; ?>
+                                        <?php echo $result['status']; ?>
                                     </td>
                                     <td class="crud"><a href="UserEdit/useredit.php"><button
-                                                style="background-color: #3A3F47"><img src="../img/edit.png"
-                                                    alt=""></button><button><img src="../img/delete.png" alt=""></button>
+                                                style="background-color: #3A3F47"><img src="../../img/edit.png"
+                                                    alt=""></button><button><img src="../../img/delete.png" alt=""></button>
                                     </td></a>
                                 </tr>
                                 <?php

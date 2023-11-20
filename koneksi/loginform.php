@@ -9,27 +9,27 @@
         $result= mysqli_query($koneksi,$sql);
 
 
-           if(empty($username)){
-            echo '<script>alert("Isi Username");</script>';
-            echo '<script>window.location = "../Login/login.php";</script>';
-        }elseif(empty($password)){
-            echo '<script>alert("Isi Password");</script>';
-            echo '<script>window.location = "../Login/login.php";</script>';
-        }elseif(mysqli_num_rows($result) === 1) {
+          if(mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
-            if ($username = $row['username'] && $password = $row["password"]) {
+                $iduser = $row['id_user'];
+                $sqlimage = "SELECT pelanggan.profil_pelanggan, pelanggan.id_pelanggan from pelanggan join user on user.id_user = pelanggan.id_user where pelanggan.id_user = '$iduser'";
+                $resultimage = mysqli_query($koneksi,$sqlimage);
+                $row2 = mysqli_fetch_assoc($resultimage);
+                var_dump($row2);
+            if ($username == $row['username'] && $password == $row["password"] && $row["id_level"] == 1) {
                 $_SESSION["islogin"] = true;
+                // $_SESSION['userimage'] = $row['']; 
                      echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
+            }elseif ($username == $row['username'] && $password == $row["password"] && $row["id_level"] == 2) {
+                 $_SESSION["idpelanggan"] = $row2["id_pelanggan"];
+                echo '<script>window.location = "../Landing/landing_pelanggan.php";</script>';
+
             }
             
         }else{
             echo '<script>alert("User Tidak Ditemukan");</script>';
             echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
         }         
-
-   
-
-    
 
 ?>
 

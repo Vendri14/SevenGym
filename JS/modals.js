@@ -5,7 +5,6 @@ function openModal(target) {
   target.style.display = "block";
 }
 
-
 function closeModal(target) {
   target.style.display = "none";
 }
@@ -39,6 +38,27 @@ $(document).ready(function () {
 
 });
 
+function updateDates() {
+  // Get the input value
+  var monthsInput = document.getElementById('months_input').value;
+
+  // Get the current date
+  var currentDate = new Date();
+
+  // Calculate the date one month later
+  var oneMonthLater = new Date();
+  oneMonthLater.setMonth(oneMonthLater.getMonth() + parseInt(monthsInput));
+
+  var totalPrice = parseInt(monthsInput) * 150000;
+
+  // Display the dates
+  document.getElementById('currentDate').innerHTML = 'Tanggal Berlangganan </br> ' + currentDate.toISOString().slice(0, 10) + ' - ' + oneMonthLater.toISOString().slice(0, 10);
+  document.getElementById('totalPrice').innerHTML = 'Total Price: </br> Rp ' + totalPrice;
+
+  document.getElementById('currentDateInput').value = currentDate.toISOString().slice(0, 10);
+  document.getElementById('oneMonthLaterInput').value = oneMonthLater.toISOString().slice(0, 10);
+  document.getElementById('totalPriceInput').value = totalPrice;
+}
 
 
 

@@ -15,6 +15,8 @@ $nohp = $_POST["nohp"];
 
 $queryuser = " INSERT INTO user VALUES ('','$username','$password','2')";
 $querypelanggan = "INSERT INTO pelanggan VALUES ('','$nama_lengkap','$tb','$bb','','$nohp','$tanggal_lahir','$jenis_kelamin',(SELECT user.id_user FROM user order by user.id_user desc limit 1),'2','')";
+// $querypelanggan = "INSERT INTO pelanggan (id_pelanggan,nama_pelanggan,tb,bb,profil_pelanggan,nohp,tanggal_lahir,jenis_kelamin,id_user,id_level,id_trainner) VALUES ('','$nama_lengkap','$tb','$bb','','$nohp','$tanggal_lahir','$jenis_kelamin',(SELECT user.id_user FROM user order by user.id_user desc limit 1),'2','')";
+
 
 
 

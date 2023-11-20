@@ -22,9 +22,7 @@ function upload(){
         echo '<script>alert("Pilih Gambar terlebih dahulu");</script>';
         return false;
     }
-
     
-
     //cek apakah yang di upload itu adalah gambar
     $ekstensigambarvalid = ['jpg','jpeg','png']; //tentukan file apa saja yang boleh masuk / di upload
     $ekstensigambar = explode('.',$namafile); // memecah nama file menjadi array
@@ -41,10 +39,12 @@ function upload(){
         return false;
     }
 
+    $namaFilebaru = uniqid();
+    $namaFilebaru .= '.';
+    $namaFilebaru .= $ekstensigambar; 
     //lolos semua validasi gambar
-    move_uploaded_file($tmpname, '../img/'. $namafile);
-    return $namafile;
-
+    move_uploaded_file($tmpname, '../img/'. $namaFilebaru);
+    return $namaFilebaru;
 
 }
 
