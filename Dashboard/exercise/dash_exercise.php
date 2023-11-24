@@ -121,7 +121,7 @@
                         <i class="uil uil-estate"></i>
                         <span class="link-name">User</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Langganan/langganan.php">
                         <i class="uil uil-files-landscapes"></i>
                         <span class="link-name">Langganan</span>
                     </a></li>
@@ -277,7 +277,7 @@
     </section>
 
     <script src="../../JS/dashboard.js"></script>
-    <script src="../../JS/modalss.js"></script>
+    <script src="../../JS/modal.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"/>

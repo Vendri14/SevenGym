@@ -1,3 +1,4 @@
+<script src="../JS/validationn.js"></script>
 <?php 
     session_start();
     require ('konesi.php');
@@ -15,14 +16,14 @@
                 $sqlimage = "SELECT pelanggan.profil_pelanggan, pelanggan.id_pelanggan from pelanggan join user on user.id_user = pelanggan.id_user where pelanggan.id_user = '$iduser'";
                 $resultimage = mysqli_query($koneksi,$sqlimage);
                 $row2 = mysqli_fetch_assoc($resultimage);
-                var_dump($row2);
             if ($username == $row['username'] && $password == $row["password"] && $row["id_level"] == 1) {
                 $_SESSION["islogin"] = true;
                 // $_SESSION['userimage'] = $row['']; 
-                     echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
+                     echo '<script>window.location = "../Dashboard/dashboard.php";</script>'; 
             }elseif ($username == $row['username'] && $password == $row["password"] && $row["id_level"] == 2) {
                  $_SESSION["idpelanggan"] = $row2["id_pelanggan"];
-                echo '<script>window.location = "../Landing/landing_pelanggan.php";</script>';
+                  echo '<script>showAlert("Berhasil Register");</script>';
+                  echo '<script>window.location = "../Landing/landing_pelanggan.php";</script>';
 
             }
             

@@ -20,11 +20,136 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="stylem.css">
+    <link rel="stylesheet" href="landingm.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
+
+  <div id="myModal" class="modal-gue">
+    <div class="modal-content-gue">
+        <span onclick="closeModal(myModal)" style="float: right; cursor: pointer;">&times;</span>
+       <!-- insert Langganan -->
+        <form action="../koneksi/tambahlangganan.php" method="POST" enctype="multipart/form-data">
+
+        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+        <section class="ortu">
+    <!-- <img src="../img/logocenter.png" alt=""> -->
+    <section class="bayu">
+    <h2>Berlangganan</h2>
+        <h3 class="price">Rp 150.000<label style="font-size: 20px;" for="">/thn</label> </h3>
+        <h5 class="fasility">Semua Fasilitas</h5>
+      </section>
+      <section class="bayi">
+        <h2>Pembayaran</h2>
+        <div class="image">
+        <img class="wa" src="../img/mastercard.png" alt="">
+        <div class="iso">
+          <p>4716056368808860</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="atasan">
+          <section class="bawahan">
+          <div class="datadiri">
+            <H3>Cara Pembayaran</H3>
+            <label for="">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit essDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.e cillum dolore eu fugiat nulla pariatur.</label><br>
+          </div>
+          </section>
+          <section class="bawahan">
+          <div class="bukpem">
+            <h3>Bukti Pembayaran</h3>
+            <img id="showimg2" src="../img/profilephoto.png" alt="">
+            <label style="font-size: 25px; margin-bottom: 10px;" for="months_input">Lama Berlangganan</label>
+              <input type="text" id="months_input2" oninput="updateDates2()" name="lama_berlangganan"required> 
+              
+              <input type="hidden" id="" name="id_pelanggan" value="<?php echo $result['id_pelanggan']; ?>">
+              <input type="hidden" id="currentDateInput2" name="current_date">
+              <input type="hidden" id="oneMonthLaterInput2" name="one_month_later">
+              <input type="hidden" id="totalPriceInput2" name="total_price">
+              <input type="hidden" id="jenis_langgganan" name="jenis_langganan" value="Tahun">
+
+              <p style="font-weight: 600; margin-left: -2px" class="dato" id="currentDate2"></p>
+              <p style="font-weight: 700; margin-left: -2px" class="dato" id="totalPrice2"></p>
+
+            <p style="color: red;  margin-left: -2px;">Upload Bukti Pembayaran</p>
+            <label style="" class="custom-file-upload">
+                     <p style="margin-top: 15px">Pilih File</p>
+                        <input type="file" name="gambar" id="gambar2"/></div>
+          </section>
+  </section>
+          
+
+  <button class="butonlanggan">Berlangganan Sekarang</button>
+        </form>
+    </div>
+ </div>
+
+  <div id="myModal2" class="modal2">
+    <div class="modal-content2">
+        <span onclick="closeModal(myModal2)" style="float: right; cursor: pointer;">&times;</span>
+       <!-- insert Langganan -->
+        <form action="../koneksi/tambahlangganan.php" method="POST" enctype="multipart/form-data">
+
+        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+        <section class="ortu">
+    <!-- <img src="../img/logocenter.png" alt=""> -->
+    <section class="bayu">
+    <h2>Berlangganan</h2>
+        <h3 class="price">Rp 150.000<label style="font-size: 20px;" for="">/bln</label> </h3>
+        <h5 class="fasility">Semua Fasilitas</h5>
+      </section>
+      <section class="bayi">
+        <h2>Pembayaran</h2>
+        <div class="image">
+        <img class="wa" src="../img/mastercard.png" alt="">
+        <div class="iso">
+          <p>4716056368808860</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="atasan">
+          <section class="bawahan">
+          <div class="datadiri">
+            <H3>Cara Pembayaran</H3>
+            <label for="">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit essDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.e cillum dolore eu fugiat nulla pariatur.</label><br>
+          </div>
+          </section>
+          <section class="bawahan">
+          <div class="bukpem">
+            <h3>Bukti Pembayaran</h3>
+            <img id="showimg" src="../img/profilephoto.png" alt="">
+            <label style="font-size: 25px; margin-bottom: 10px;" for="months_input">Lama Berlangganan</label>
+              <input type="text" id="months_input" oninput="updateDates()" name="lama_berlangganan"required> 
+              
+              <input type="hidden" id="" name="id_pelanggan" value="<?php echo $result['id_pelanggan']; ?>">
+              <input type="hidden" id="currentDateInput" name="current_date">
+              <input type="hidden" id="oneMonthLaterInput" name="one_month_later">
+              <input type="hidden" id="totalPriceInput" name="total_price">
+              <input type="hidden" id="jenis_langgganan" name="jenis_langganan" value="Bulan">
+
+
+              <p style="font-weight: 600; margin-left: -2px" class="dato" id="currentDate"></p>
+              <p style="font-weight: 700; margin-left: -2px" class="dato" id="totalPrice"></p>
+
+            <p style="color: red;  margin-left: -2px;">Upload Bukti Pembayaran</p>
+            <label style="" class="custom-file-upload">
+                     <p style="margin-top: 15px">Pilih File</p>
+                        <input type="file" name="gambar" id="gambar"/></div>
+          </section>
+  </section>
+          
+
+  <button class="butonlanggan">Berlangganan Sekarang</button>
+        </form>
+    </div>
+ </div>
     
   <nav class="navbar sticky-top navbar-expand-lg ">
   <div class="container">
@@ -162,7 +287,7 @@
         <h5 class="card-title">TAHUNAN</h5>
         <h3 class="card-price">Rp 150.000<label style="font-size: 20px;" for="">/thn</label> </h3>
         <p class="card-text">Semua Fasilitas.</p>
-        <button onclick="openModal(myModal2)" class="btn btn-primary">Daftar Sekarang</button>
+        <button onclick="openModal(myModal)" class="btn btn-primary">Daftar Sekarang</button>
       </div>
     </div>
 
@@ -302,72 +427,11 @@
     </div>
   </section>
 
-  <div id="myModal2" class="modal2">
-    <div class="modal-content2">
-        <span onclick="closeModal(myModal2)" style="float: right; cursor: pointer;">&times;</span>
-       <!-- insert Langganan -->
-        <form action="../koneksi/tambahlangganan.php" method="POST" enctype="multipart/form-data">
-
-        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
-        <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
-        <section class="ortu">
-    <!-- <img src="../img/logocenter.png" alt=""> -->
-    <section class="bayu">
-    <h2>Berlangganan</h2>
-        <h3 class="price">Rp 150.000<label style="font-size: 20px;" for="">/thn</label> </h3>
-        <h5 class="fasility">Semua Fasilitas</h5>
-      </section>
-      <section class="bayi">
-        <h2>Pembayaran</h2>
-        <div class="image">
-        <img class="wa" src="../img/mastercard.png" alt="">
-        <div class="iso">
-          <p>4716056368808860</p>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <section class="atasan">
-          <section class="bawahan">
-          <div class="datadiri">
-            <H3>Cara Pembayaran</H3>
-            <label for="">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit essDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.e cillum dolore eu fugiat nulla pariatur.</label><br>
-          </div>
-          </section>
-          <section class="bawahan">
-          <div class="bukpem">
-            <h3>Bukti Pembayaran</h3>
-            <img id="showimg" src="../img/profilephoto.png" alt="">
-            <label style="font-size: 25px; margin-bottom: 10px;" for="months_input">Lama Berlangganan</label>
-              <input type="text" id="months_input" oninput="updateDates()" name="lama_berlangganan"required> 
-              
-              <input type="hidden" id="" name="id_pelanggan" value="<?php echo $result['id_pelanggan']; ?>">
-              <input type="hidden" id="currentDateInput" name="current_date">
-              <input type="hidden" id="oneMonthLaterInput" name="one_month_later">
-              <input type="hidden" id="totalPriceInput" name="total_price">
-
-              <p style="font-weight: 600; margin-left: -2px" class="dato" id="currentDate"></p>
-              <p style="font-weight: 700; margin-left: -2px" class="dato" id="totalPrice"></p>
-
-            <p style="color: red;  margin-left: -2px;">Upload Bukti Pembayaran</p>
-            <label style="" class="custom-file-upload">
-                     <p style="margin-top: 15px">Pilih File</p>
-                        <input type="file" name="gambar" id="gambar"/></div>
-          </section>
-  </section>
-          
-
-  <button class="butonlanggan">Berlangganan Sekarang</button>
-        </form>
-    </div>
- </div>
-
  
  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
- <script src="../JS/modals.js"></script>
- <script src="../JS/showpict.js"></script>
+ <script src="../JS/modal.js"></script>
+ <script src="../JS/showpicta.js"></script>
  <script>
   AOS.init();
  </script>

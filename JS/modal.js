@@ -61,6 +61,29 @@ function updateDates() {
 }
 
 
+function updateDates2() {
+  // Get the input value
+  var monthsInput = document.getElementById('months_input2').value;
+
+  // Get the current date
+  var currentDate = new Date();
+
+  // Calculate the date one month later
+  var oneMonthLater = new Date();
+  oneMonthLater.setMonth(oneMonthLater.getMonth() + parseInt(monthsInput));
+
+  var totalPrice = parseInt(monthsInput) * 150000;
+
+  // Display the dates
+  document.getElementById('currentDate2').innerHTML = 'Tanggal Berlangganan </br> ' + currentDate.toISOString().slice(0, 10) + ' - ' + oneMonthLater.toISOString().slice(0, 10);
+  document.getElementById('totalPrice2').innerHTML = 'Total Price: </br> Rp ' + totalPrice;
+
+  document.getElementById('currentDateInput2').value = currentDate.toISOString().slice(0, 10);
+  document.getElementById('oneMonthLaterInput2').value = oneMonthLater.toISOString().slice(0, 10);
+  document.getElementById('totalPriceInput2').value = totalPrice;
+}
+
+
 
 
 

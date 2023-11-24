@@ -34,8 +34,63 @@ function validateForm() {
   }else {
     showAlert("Please fill in both username and password");
 }
-  // If all validations pass, submit the form to a PHP script
+  // Jika semua Validasi Benar Jalankan 
   
+}
+
+function validateRegisterForm(){
+  var nama_lengkap = document.getElementById('nama_lengkap').value;
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  var konfirmasi_pass = document.getElementById('konfirmasi_pass').value;
+  var tanggal = document.getElementById('tanggal').value;
+  var jenis_kelamin = document.getElementById('jenis_kelamin').value;
+  var tb = document.getElementById('tb').value;
+  var bb = document.getElementById('bb').value;
+  var nohp = document.getElementById('nohp').value;
+
+  if (nama_lengkap === "") {
+    showAlert("isi Nama Lengkap!");
+    return;
+  }if (username === "") {
+    showAlert("isi Username!");
+    return;
+  }if (password === "") {
+    showAlert("isi Password!");
+    return;
+  }if (konfirmasi_pass === "") {
+    showAlert("isi Konfirmasi Password!");
+    return;
+  }if (tanggal === "") {
+    showAlert("isi Tanggal!");
+    return;
+  }if (jenis_kelamin === "") {
+    showAlert("isi Jenis Kelamin!");
+    return;
+  }if (tb === "") {
+    showAlert("isi Tinggi Badan!");
+    return;
+  }if (bb === "") {
+    showAlert("isi Berat Badan!");
+    return;
+  }if (nohp === "") {
+    showAlert("isi Berat Badan!");
+    return;
+  }if (nama_lengkap !== "" 
+        && username !== "" 
+        && password !== "" 
+        && konfirmasi_pass !== "" 
+        && tanggal !== "" 
+        && jenis_kelamin !== "" 
+        && tb !== "" 
+        && bb !== "" 
+        && nohp !== "") {
+    document.getElementById('input').submit();
+  }else {
+    showAlert("Please fill in both username and password");
+}
+
+
 }
 
 function checkDatabase() {

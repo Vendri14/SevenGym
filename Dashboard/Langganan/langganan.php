@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require('../../koneksi/konesi.php');
+
     // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
     // $result = mysqli_fetch_assoc($query);
 
@@ -21,80 +23,64 @@ session_start();
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="userlangganann.css">
+    <link rel="stylesheet" href="userlangganan.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.css" rel="stylesheet">
+ 
+<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
 
     <title>Admin Dashboard Panel</title>
 </head>
 
 <body>
 
-<div id="myModal" class="modal">
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#contoh').DataTable();
+    });
+    $(document).ready(function(){
+        $('#contoh2').DataTable();
+    });
+</script>
+
+        <div id="myModal" class="modal">
             <div class="modal-content">
-                <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+                <span onclick="closeModal(myModal)" style="float: right; cursor: pointer;">&times;</span>
                 <h2>Tambah Data Berlangganan</h2>
-                <input style="padding: 12px;" type="text" placeholder="Search..">
-                <!-- <p>This is a simple pop-up created with HTML and JavaScript.</p> -->
-                <table class="table table-bordered">
 
-                <div class="label">
-                        <label for="">Jenis Berlangganan</label>
-                        <br>
-                        <select name="jenis_kelamin">
-                        <option>Bulanan</option>
-                        <option>Harian</option>
-                     </select>
-                     </div>
-                     <div class="label">
-                        Lama Berlangganan <br>
-                        <input type="text" name="tanggal_lahir" id="date">
-                     </div>
+                <section class="parent">
 
-                        <label for="">Pilih User</label>
+                <section class="child">
+                <div class="table-responsive-hd">
+                    <table id="contoh2" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Lengkap</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                          
-
+                                <th scope="col"></th>
+                                <th scope="col">Nama Pelanggan</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $server = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $db = "sevengym";
-                            $koneksi = mysqli_connect($server, $username, $password, $db);
-
-                            if (mysqli_connect_errno()) {
-                                echo "Koneksi Gagal : " . mysqli_connect_error();
-                            }
-                            $query_sql = "SELECT * FROM user";
-                            $sql= mysqli_query($koneksi, $query_sql);
+                          
+                          $sql_pelanggan = "SELECT * from pelanggan";
+                          $sqlall= mysqli_query($koneksi, $sql_pelanggan);
                             $no = 1;
                             ?>
                             <?php
-                            while ($result = mysqli_fetch_assoc($sql)) {
+                            while ($result2 = mysqli_fetch_assoc($sqlall)) {
                                 ?>
                                 <tr>
                                     <td>
-                                        <?php echo ++$no; ?>
+                                        <?php echo $no++; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['nama_lengkap']; ?>
+                                        <?php echo $result2['nama_pelanggan']; ?>
                                     </td>
-                                    <td>
-                                        <?php echo $result['username']; ?>
-                                    </td>
-                             
-                                    <td class="crud"><a href="UserEdit/useredit.php"><button
-                                                style="background-color: #3A3F47"><img src="../img/edit.png"
-                                                    alt=""></button><button><img src="../img/delete.png" alt=""></button>
+                                   
+                                    <td class="crud"> <button>Pilih</button>
                                     </td></a>
                                 </tr>
                                 <?php
@@ -102,9 +88,23 @@ session_start();
                             ?>
                         </tbody>
                     </table>
-                    <img src="../../img/profilephoto.png" alt="" id="profile">   
+                </div>
+                </section>
+
+                            <section class="child">
+                                <div class="input_langganan">
+                                    <h3>Nama Pelanggan</h3>
+
+                                        
+                                </div>
+                                
+                            </section>
+
+                </section>
+              
+ 
             </div>
-            </div>
+        </div>
     
     <nav>
         <div class="logo-name">
@@ -186,11 +186,10 @@ session_start();
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="contoh" class="table table-bordered">
                         <input style="padding: 12px;" type="text" placeholder="Search..">
-                        <a href=""> <button style="border-right:0;" id="pilih">Proses Transaksi <button style="border-left: 0;" id="pilih">Sudah Berlangganan</button></button> </a>
-                        <button onclick="openModal()" class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelanggan Berlangganan</button>
+                        <a href="langganan.php"><button style="border-right:0;" id="pilih">Proses Transaksi </button></a> <a href="langganan_berlangganan.php"><button style="border-left: 0;" id="pilih2">Sudah Berlangganan</button></a>
+                        <button onclick="openModal(myModal)" class="btntambah"><img src="../img/Vector.png" alt=""> Tambah Pelanggan Berlangganan</button>
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -198,15 +197,17 @@ session_start();
                                 <th scope="col">Tanggal Masuk</th>
                                 <th scope="col">Tanggal Keluar</th>
                                 <th scope="col">Total Harga</th>
+                                <th scope="col">Jenis Langganan</th>
                                 <th scope="col">Lama Berlangganan</th>
                                 <th scope="col">Bukti Transaksi</th>
                                 <th scope="col">Status</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                           
-                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan";
+                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.id_berlangganan,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status,detail_langganan.jenis_langganan from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Belum Terverivikasi'";
                           $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -230,6 +231,9 @@ session_start();
                                         <?php echo $result['total_harga']; ?>
                                     </td>
                                     <td>
+                                        <?php echo $result['jenis_langganan']; ?>
+                                    </td>
+                                    <td>
                                         <?php echo $result['lama_berlangganan']; ?>
                                     </td>
                                     <td>
@@ -238,9 +242,7 @@ session_start();
                                     <td>
                                         <?php echo $result['status']; ?>
                                     </td>
-                                    <td class="crud"><a href="UserEdit/useredit.php"><button
-                                                style="background-color: #3A3F47"><img src="../../img/edit.png"
-                                                    alt=""></button><button><img src="../../img/delete.png" alt=""></button>
+                                    <td class="crud"> <a href= "../../koneksi/verifikasi_langganan.php?id_langganan=<?= $result['id_berlangganan']; ?>"><button style="background-color: #A9FF65"><img src="../../img/centang.png" alt=""></button> <a href="UserEdit/useredit.php"><button style="background-color: #3A3F47"><img src="../../img/edit.png" alt=""></button><button><img src="../../img/delete.png" alt=""></button>
                                     </td></a>
                                 </tr>
                                 <?php
@@ -257,11 +259,15 @@ session_start();
       
 
             <!-- The modal -->
-            
+
+
     </section>
 
     <script src="../../JS/dashboard.js"></script>
     <script src="../../JS/modal.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"/>
 </body>
 
 </html>

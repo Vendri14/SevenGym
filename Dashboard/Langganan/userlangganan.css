@@ -518,16 +518,17 @@ nav.close ~ .dashboard .top{
     margin-top: 90px ;
 }
 
-#pilih{
+#pilih,#pilih2{
     margin-right: -20px;
-    margin-left: 20px;;
+    margin-left: 20px;
+    margin-bottom: 30px;
     background-color: #fff;
     border-width: .25px;
     width: 190px;
     height: 40px;
     border-radius: 0px;
 }
-#pilih:hover{
+#pilih,#pilih2:hover{
     background-color: var(--box1-color);
     color: #000;
 }
@@ -568,8 +569,44 @@ nav.close ~ .dashboard .top{
   .modal-content #profile{
     width: 40%;
   }
+#contoh{
+    font-size: 13px !important ;
+}
 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1rm;
+  }
   
+  /* Styling for the modal content */
+  .modal-content {
+    background-color: #fff;
+    width: 90%;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  #contoh2{
+    width: 100%;
+  }
+  .parent{
+    display: flex;
+  }
+  .child{
+    width: 45%;
+    margin-right: 5rem;
+  }
+  .input_langganan{
+    margin-top: 5rem;
+  }
+
   
 
 /* TABLE

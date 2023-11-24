@@ -105,7 +105,7 @@
 
             <div class="profile-image">
              <form action="../../koneksi/tambahuserpelanggan.php" method="POST" enctype="multipart/form-data">
-                <img src="../../img/profilephoto.png" alt="" id="showimg">
+                <img src="" alt="" id="showimg">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->

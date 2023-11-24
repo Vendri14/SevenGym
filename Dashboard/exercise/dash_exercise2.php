@@ -126,7 +126,7 @@
                         <i class="uil uil-estate"></i>
                         <span class="link-name">User</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../Langganan/langganan.php">
                         <i class="uil uil-files-landscapes"></i>
                         <span class="link-name">Langganan</span>
                     </a></li>

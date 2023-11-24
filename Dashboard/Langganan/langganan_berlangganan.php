@@ -1,6 +1,5 @@
 <?php
-    require('../../koneksi/konesi.php');
-    session_start();
+session_start();
 
     // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
     // $result = mysqli_fetch_assoc($query);
@@ -8,9 +7,7 @@
             if (!isset($_SESSION["islogin"])) {
                 header("Location: ../../Login/login.php");
             }
-?>
-
-
+            ?>
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -24,14 +21,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="expert.css">
+    <link rel="stylesheet" href="berlangganan.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.css" rel="stylesheet">
  
-<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
+ <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
 
     <title>Admin Dashboard Panel</title>
 </head>
@@ -42,31 +39,52 @@
     $(document).ready(function(){
         $('#example').DataTable();
     });
-    $(document).ready(function(){
-        $('#example2').DataTable();
-    });
 </script>
-
-        
 
 <div id="myModal" class="modal">
             <div class="modal-content">
-                <form action="../../koneksi/insert_exercise_paket.php" method="POST">
-                <span onclick="closeModal(myModal)" style="float: right; cursor: pointer;">&times;</span>
-                <h2>Tambah Exercise</h2>
-                <table id="example" class="table borderless">                        
+                <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+                <h2>Tambah Data Berlangganan</h2>
+                <input style="padding: 12px;" type="text" placeholder="Search..">
+                <!-- <p>This is a simple pop-up created with HTML and JavaScript.</p> -->
+                <table class="table table-bordered">
+
+                <div class="label">
+                        <label for="">Jenis Berlangganan</label>
+                        <br>
+                        <select name="jenis_kelamin">
+                        <option>Bulanan</option>
+                        <option>Harian</option>
+                     </select>
+                     </div>
+                     <div class="label">
+                        Lama Berlangganan <br>
+                        <input type="text" name="tanggal_lahir" id="date">
+                     </div>
+
+                        <label for="">Pilih User</label>
                         <thead>
                             <tr>
-                                    <th scope="col">Gambar</th>
-                                    <th scope="col">Exercise</th>
-                                    <th scope="col">Waktu / Set</th>
-                                    <th scope="col">Repetisi</th>
-                                    <th scope="col"></th>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+                          
+
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query_sql = "SELECT exercise.id_exercise,exercise.nama_exercise from exercise";
+                            $server = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $db = "sevengym";
+                            $koneksi = mysqli_connect($server, $username, $password, $db);
+
+                            if (mysqli_connect_errno()) {
+                                echo "Koneksi Gagal : " . mysqli_connect_error();
+                            }
+                            $query_sql = "SELECT * FROM user";
                             $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -75,34 +93,28 @@
                                 ?>
                                 <tr>
                                     <td>
-                                        <?php echo $no++; ?>
+                                        <?php echo ++$no; ?>
                                     </td>
                                     <td>
-                                    <?php echo $result['nama_exercise']; ?>
-                                    <input type="hidden" name="nama_exercise[]" value="<?php echo $result['nama_exercise']; ?>"></input>
+                                        <?php echo $result['nama_lengkap']; ?>
                                     </td>
                                     <td>
-                                        <input type="text" name="waktu_set[]">
+                                        <?php echo $result['username']; ?>
                                     </td>
-                                    <td>
-                                       <input type="text" name="repetisi[]">
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" id="cek" name="idcheckbox[]" value="<?= $result['id_exercise'];  ?>">
-                                    </td>
+                             
+                                    <td class="crud"><a href="UserEdit/useredit.php"><button
+                                                style="background-color: #3A3F47"><img src="../img/edit.png"
+                                                    alt=""></button><button><img src="../img/delete.png" alt=""></button>
+                                    </td></a>
                                 </tr>
                                 <?php
                             }
                             ?>
                         </tbody>
                     </table>
-                                 <button style=""> Tambah Exercise</button>
-                    </form>
-                    
+                    <img src="../../img/profilephoto.png" alt="" id="profile">   
             </div>
             </div>
-
-            
     
     <nav>
         <div class="logo-name">
@@ -119,11 +131,11 @@
                         <i class="uil uil-estate"></i>
                         <span class="link-name">User</span>
                     </a></li>
-                <li><a href="../Langganan/langganan.php">
+                <li><a href="#">
                         <i class="uil uil-files-landscapes"></i>
                         <span class="link-name">Langganan</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="../exercise/dash_exercise.php">
                         <i class="uil uil-chart"></i>
                         <span class="link-name">Exercise</span>
                     </a></li>
@@ -174,38 +186,39 @@
         <div class="dash-content">
         <!-- The modal -->
         
+        
+            
 
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
-                    <span class="text">Data Exercise</span>
+                    <span class="text">Data Pelanggan</span>
                 </div>
 
                 <div class="table-responsive">
-                    <table id="example2" class="table borderless">
-                    <a href="dash_exercise.php"><button style="border-right:0;" id="pilih">Exercise Paket </button></a> <a href="dash_exercise2.php"><button style="border-left: 0;" id="pilih2">Exercise User</button></a>
-                        <a href="TambahUser/tambahuser.php"></a>
-                        <button onclick="openModal(myModal)" class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Data</button>
-                                    <br>
-                                    <a href="dash_exercise.php"> <button style="" id="beginner">Beginner</button></a> <a href="dash_exercise_medium.php"><button style="" id="medium">Medium </button></a> <a href="dash_exercise_expert.php"><button style="" id="expert">Expert</button></a>
-                        
+                    <table id="example" class="table table-bordered">
+                        <input style="padding: 12px;" type="text" placeholder="Search..">
+                        <a href="langganan.php"><button style="border-right:0;" id="pilih">Proses Transaksi </button></a> <a href="langganan_berlangganan.php"><button style="border-left: 0;" id="pilih2">Sudah Berlangganan</button></a>
+                        <button onclick="openModal()" class="btntambah"><img src="../img/Vector.png"
+                                    alt=""> Tambah Pelanggan Berlangganan</button>
                         <thead>
                             <tr>
-                                <th scope="col">Check</th>
-                                <th scope="col">No</th>
-                                <th scope="col">Gambar</th>
-                                <th scope="col">Exercise</th>
-                                <th scope="col">Waktu / Set</th>
-                                <th scope="col">Repetisi</th>
                                 <th scope="col"></th>
-
+                                <th scope="col">Nama Pelanggan</th>
+                                <th scope="col">Tanggal Masuk</th>
+                                <th scope="col">Tanggal Keluar</th>
+                                <th scope="col">Total Harga</th>
+                                <th scope="col">Lama Berlangganan</th>
+                                <th scope="col">Bukti Transaksi</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query_sql = "select exercise.nama_exercise,detail_paket_exercise.id_paket_exc , detail_paket_exercise.waktu_set,detail_paket_exercise.repetisi from exercise join detail_paket_exercise on exercise.id_exercise = detail_paket_exercise.id_exercise where detail_paket_exercise.id_paket = 3";
-                            $sql= mysqli_query($koneksi, $query_sql);
+                          
+                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Terverifikasi'";
+                          $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
                             <?php
@@ -213,28 +226,33 @@
                                 ?>
                                 <tr>
                                     <td>
-                                    <input type="checkbox" id="check">
-                                    </td>
-                                    <td>
                                         <?php echo $no++; ?>
                                     </td>
                                     <td>
-                                        Gambar
+                                        <?php echo $result['nama_pelanggan']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['nama_exercise']; ?>
+                                        <?php echo $result['tanggal_masuk']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['waktu_set']; ?>
+                                        <?php echo $result['tanggal_keluar']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $result['repetisi']; ?>
+                                        <?php echo $result['total_harga']; ?>
                                     </td>
-                                    <td class="crud">
-                                        <button data-idexc="<?php echo $result['id_paket_exc']; ?>" data-namaex="<?php echo $result['nama_exercise']; ?>" data-waktu-set ="<?php echo $result['waktu_set']; ?>" data-rep="<?php echo $result['repetisi']; ?>" class="btnupdate"  style="background-color: #3A3F47"><img src="../../img/edit.png"alt=""></button>
-                                        
-                                        <a href="../koneksi/hapususer.php"><button><img src="../../img/delete.png" alt="" class="hapus"></button></a>
+                                    <td>
+                                        <?php echo $result['lama_berlangganan']; ?>
                                     </td>
+                                    <td>
+                                        <img src="../../img/<?php echo $result['bukti_transaksi']; ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <?php echo $result['status']; ?>
+                                    </td>
+                                    <td class="crud"><a href="UserEdit/useredit.php"><button
+                                                style="background-color: #3A3F47"><img src="../../img/edit.png"
+                                                    alt=""></button><button><img src="../../img/delete.png" alt=""></button>
+                                    </td></a>
                                 </tr>
                                 <?php
                             }
@@ -247,36 +265,15 @@
             </div>
         </div>
 
-        <div id="myModal2" class="modal2">
-            <div class="modal-content2">
-                <span onclick="closeModal(myModal2)" style="float: right; cursor: pointer;">&times;</span>
-                <h2>Tambah Data Berlangganan</h2>
+      
 
-                <form action="../../koneksi/updateexcpaket.php" method="POST">
-
-                <input type="hidden" name="idexc" id="idexc">
-                <label for="">nama_exercise</label>
-                <input name="nama_exercise" id="nama_exercise" style="padding: 12px;" type="text" placeholder="Search.." > 
-                <label for="">Waktu / Set</label>
-                <input name="waktuset" id="waktuset" style="padding: 12px;" type="text" placeholder="Search..">
-                <label for="">Repetisi</label> 
-                <input name="reps" id="reps" style="padding: 12px;" type="text" placeholder="Search..">
-
-                <button style=""> Edit Exercise</button>
-                </form>
-                
-                
-     
-            </div>
-         </div>
-
-       
             <!-- The modal -->
             
     </section>
 
     <script src="../../JS/dashboard.js"></script>
     <script src="../../JS/modal.js"></script>
+
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"/>
