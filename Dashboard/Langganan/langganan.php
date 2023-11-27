@@ -36,6 +36,9 @@ require('../../koneksi/konesi.php');
 
 <body>
 
+
+
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('#contoh').DataTable();
@@ -46,10 +49,11 @@ require('../../koneksi/konesi.php');
 </script>
 
         <div id="myModal" class="modal">
+        <div id="customAlert" class="custom-alert"></div>
             <div class="modal-content">
                 <span onclick="closeModal(myModal)" style="float: right; cursor: pointer;">&times;</span>
                 <h2>Tambah Data Berlangganan</h2>
-
+            
                 <section class="parent">
 
                 <section class="child">
@@ -80,7 +84,8 @@ require('../../koneksi/konesi.php');
                                         <?php echo $result2['nama_pelanggan']; ?>
                                     </td>
                                    
-                                    <td class="crud"> <button>Pilih</button>
+                                    <td class="crud">
+                                        <button onclick="selectPelanggan('<?php echo $result2['nama_pelanggan']; ?>', '<?php echo $result2['id_pelanggan']; ?>')">Pilih</button>
                                     </td></a>
                                 </tr>
                                 <?php
@@ -90,17 +95,62 @@ require('../../koneksi/konesi.php');
                     </table>
                 </div>
                 </section>
-
+                        
                             <section class="child">
+                                
+                            <form id="simpan" action="../../koneksi/tambahlanggananadmin.php" method="POST" enctype="multipart/form-data">
                                 <div class="input_langganan">
                                     <h3>Nama Pelanggan</h3>
+                                    <label style="color: #F9A021;" id="namauser" for="">Pilih User Yang <br> Ingin Ditambahkan</label>
+                                    <input type="hidden" id="inputnamauser" name="id_pelanggan" >
+                                    <input type="hidden" id="imglama" name="imglama">
 
-                                        
+
+                                    <div class="column">
+                                        <div class="label">
+                                        <label for="">Lama Berlangganan</label> <br>
+                                        <input type="text" name= "lama_berlangganan" placeholder="" id="months_input" oninput="updateDates3()">
+
+                                        <input type="hidden" id="currentDateInput" name="current_date">
+                                        <input type="hidden" id="oneMonthLaterInput" name="one_month_later">
+                                        <input type="hidden" id="totalPriceInput" name="total_price">
+                                        </div>
+
+                                        <div class="label">
+                                        <label for="">Jenis Langganan</label> <br>
+                                        <select name="jenis_langganan" id="jenis_langganan">
+                                        <option>Tahun</option>
+                                        <option>Bulan</option>
+                                    </select>                                        
+                                </div>
+                                <p style="font-weight: 600; margin-left: -2px" class="dato" id="currentDate"></p>
+                                        <p style="font-weight: 700; margin-left: -2px" class="totprice" id="totalPrice"></p>
+
                                 </div>
                                 
                             </section>
 
+                            <section class="child">
+                                <div class="pict">
+                                    <h3 class="buktitrans">Bukti Transaksi</h3>
+                                    <img id="showimg" src="../../img/profilephoto.png" alt="">
+                                </div>
+                                <div class="button">
+                                    <label class="custom-file-upload">
+                                        Upload Bukti
+                                        <input type="file" name="gambar" id="gambar"/>
+                                    </label>
+                                    <button type="button" onclick="validateTambahLangganan()" class="submit" name="tambahkan" id="tambahkan"> Tambah</button>
+
+                                </div>
+                            </section>
+
                 </section>
+
+                </form>
+
+                <?php
+                ?>
               
  
             </div>
@@ -187,7 +237,6 @@ require('../../koneksi/konesi.php');
 
                 <div class="table-responsive">
                     <table id="contoh" class="table table-bordered">
-                        <input style="padding: 12px;" type="text" placeholder="Search..">
                         <a href="langganan.php"><button style="border-right:0;" id="pilih">Proses Transaksi </button></a> <a href="langganan_berlangganan.php"><button style="border-left: 0;" id="pilih2">Sudah Berlangganan</button></a>
                         <button onclick="openModal(myModal)" class="btntambah"><img src="../img/Vector.png" alt=""> Tambah Pelanggan Berlangganan</button>
                         <thead>
@@ -207,7 +256,7 @@ require('../../koneksi/konesi.php');
                         <tbody>
                             <?php
                           
-                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.id_berlangganan,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status,detail_langganan.jenis_langganan from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Belum Terverivikasi'";
+                          $query_sql = "SELECT pelanggan.nama_pelanggan,pelanggan.id_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.id_berlangganan,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status,detail_langganan.jenis_langganan from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Belum Terverivikasi'";
                           $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -242,8 +291,10 @@ require('../../koneksi/konesi.php');
                                     <td>
                                         <?php echo $result['status']; ?>
                                     </td>
-                                    <td class="crud"> <a href= "../../koneksi/verifikasi_langganan.php?id_langganan=<?= $result['id_berlangganan']; ?>"><button style="background-color: #A9FF65"><img src="../../img/centang.png" alt=""></button> <a href="UserEdit/useredit.php"><button style="background-color: #3A3F47"><img src="../../img/edit.png" alt=""></button><button><img src="../../img/delete.png" alt=""></button>
-                                    </td></a>
+                                    <td class="crud"> <a href= "../../koneksi/verifikasi_langganan.php?id_langganan=<?= $result['id_berlangganan']; ?>"><button name="verifikasi" style="background-color: #A9FF65"><img src="../../img/centang.png" alt=""></button></a>
+                                    <button class="updatemodal" name="updatemodal" data-nama="<?php echo $result ['nama_pelanggan']; ?>" data-id="<?php echo $result ['id_pelanggan'];?>" data-gambar="<?php echo $result ['bukti_transaksi'];?>" style="background-color: #3A3F47"><img src="../../img/edit.png" alt=""></button>
+                                    <button><img src="../../img/delete.png" alt=""></button>
+                                    </td>
                                 </tr>
                                 <?php
                             }
@@ -256,14 +307,14 @@ require('../../koneksi/konesi.php');
             </div>
         </div>
 
-      
-
             <!-- The modal -->
 
 
     </section>
 
     <script src="../../JS/dashboard.js"></script>
+    <script src="../../JS/validation.js"></script>
+    <script src="../../JS/showpict.js"></script>
     <script src="../../JS/modal.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>

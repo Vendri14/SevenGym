@@ -27,7 +27,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="edituser.css">
+    <link rel="stylesheet" href="edituserb.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -35,6 +35,8 @@
     <title>Admin Dashboard Panel</title>
 </head>
 <body>
+<div id="customAlert" class="custom-alert"></div>
+
     <nav>
         <div class="logo-name">
             <div class="logo-image">
@@ -111,8 +113,10 @@
             
            
             <div class="profile-image">
-             <form action="../../koneksi/updateuserpelanggan.php" method="POST">
-                <img src="../../img/<?php echo $result['profil_pelanggan'];?>" alt="">
+             <form id="tambah" action="../../koneksi/updateuserpelanggan.php" method="POST" enctype="multipart/form-data">
+                <img src="../../img/<?php echo $result['profil_pelanggan'];?>" alt="" id="showimg">
+
+                <input id="imglama" type="hidden" name="imglama" value="<?php echo $result['profil_pelanggan']?>">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
@@ -123,19 +127,19 @@
                     <div class="label">
                    Nama User
                     </div>
-                   <input type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["nama_pelanggan"]; ?>">
+                   <input id="nama_user" type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["nama_pelanggan"]; ?>">
 
                    
                    <div class="column">
                         <div class="label">
                         <label for="">Username</label> 
-                        <input type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username" value="<?= $result["username"]; ?>">
+                        <input id="username" type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username" value="<?= $result["username"]; ?>">
                         </div>
                         
                    
                      <div class="label">
                      <label for="">Password</label>
-                     <input type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password" value="<?= $result["password"]; ?>">
+                     <input id="password" type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password" value="<?= $result["password"]; ?>">
                         </div>
                    </div>
 
@@ -144,7 +148,7 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-                        <select style="width:230px;" name="jenis_kelamin" value="<?= $result["jenis_kelamin"]; ?>">
+                        <select id="jenis_kelamin" style="width:230px;" name="jenis_kelamin" value="<?= $result["jenis_kelamin"]; ?>">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
@@ -152,7 +156,7 @@
 
                      <div class="label">
                         Tanggal Lahir <br>
-                        <input style="width: 230px;" type="date" name="tanggal_lahir" id="date" value="<?= $result["tanggal_lahir"]; ?>">
+                        <input id="tgl_lahir" style="width: 230px;" type="date" name="tanggal_lahir" id="date" value="<?= $result["tanggal_lahir"]; ?>">
                      </div>
                      <!-- <div class="label">
                         Akhir Berlanggan <br>
@@ -163,21 +167,22 @@
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
-                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb" value="<?= $result["bb"]; ?>">
+                        <input id="bb" type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb" value="<?= $result["bb"]; ?>">
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["tb"]; ?>">
+                        <input id="tb" type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["tb"]; ?>">
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["nohp"]; ?>">
+                        <input id="nohp" type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result["nohp"]; ?>">
                      </div>
-                        <button class="tambah" value="update">Tambah</button>
-                     <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
-                     <button style="background-color: #FF7C7C ">Hapus Profile</button>
+                        <button type="button" onclick="validateUpdatePelanggan()" class="submit" value="update">Simpan</button>
+                        <label style="margin-top: 15px" class="custom-file-upload">
+                     Pilih Profile
+                        <input type="file" name="gambar" id="gambar"/>
                 </form>
               </div>
 
@@ -186,7 +191,10 @@
             </div>
         </div>
     </section>
-    
+
+
+    <script src="../../JS/showpict.js"></script>
+    <script src="../../JS/validation.js"></script>
     <script src="../../JS/dashboard.js"></script>
 </body>
 </html>

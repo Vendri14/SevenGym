@@ -194,8 +194,6 @@
                     <table id="example2" class="table borderless">
                     <a href="dash_exercise.php"><button style="border-right:0;" id="pilih">Exercise Paket </button></a> <a href="dash_exercise2.php"><button style="border-left: 0;" id="pilih2">Exercise User</button></a>
                         <a href="TambahUser/tambahuser.php"></a>
-                        <button onclick="openModal()" class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Data</button>
                                     <br>
                         
                         <thead>
@@ -213,7 +211,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query_sql = "SELECT pelanggan.nama_pelanggan,pelanggan.tanggal_lahir,pelanggan.jenis_kelamin,pelanggan.bb,pelanggan.tb,pelanggan.id_trainner from pelanggan;";
+                            $query_sql = "SELECT pelanggan.nama_pelanggan,pelanggan.id_pelanggan,pelanggan.tanggal_lahir,pelanggan.jenis_kelamin,pelanggan.bb,pelanggan.tb,pelanggan.id_trainner from pelanggan;";
                             $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>
@@ -243,7 +241,7 @@
                                         <?php echo $result['id_trainner']; ?>
                                     </td>
                                     <td class="crud">
-                                        <a href= "UserEdit/useredit.php">
+                                        <a href= "userexcercise/userexcercise.php?excuser <?php echo $result['id_pelanggan']; ?>">
                                         <button style="background-color: #3A3F47"><img src="../../img/edit.png"alt=""></button></a>
                                         
                                         <a href="../koneksi/hapususer.php"><button><img src="../../img/delete.png" alt="" class="hapus"></button></a>

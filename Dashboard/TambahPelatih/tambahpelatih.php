@@ -1,14 +1,10 @@
 <?php
-
-    session_start();
     require("../../koneksi/konesi.php");
 
-    // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
-    // $result = mysqli_fetch_assoc($query);
-
-            if (!isset($_SESSION["islogin"])) {
-                header("Location: ../../Login/login.php");
-            }
+session_start();
+if (!isset($_SESSION["islogin"])) {
+    header("Location: ../../Login/login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="tambahpelatihh.css">
+    <link rel="stylesheet" href="tambahpelatihl.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -104,21 +100,27 @@
                 </div>
             </div>
 
+                        <div id="customAlert" class="custom-alert"></div>
+
+
             <div class="profile-image">
-             <form action="../../koneksi/tambahuserpelatih.php" method="POST">
-                <img src="../../img/profilephoto.png" alt="">
+             <form id="tambah" action="../../koneksi/tambahuserpelatih.php" method="POST" enctype="multipart/form-data">
+                <img src="../../img/profilephoto.png" alt="" id="showimg">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
-                    <div class="label">
-                   Nama Pelanggan
+                <div class="label">
                     </div>
-                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih">
+                   <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" >
+                    <div class="label">
+                   Nama Pelatih
+                    </div>
+                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih" id="nama_pelatih" >
 
                    <div class="label">
                          Deskripsi Pelatih <br>
-                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" >
+                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" id="deskripsi" >
                      </div>
                    
                    <div class="column">
@@ -129,7 +131,7 @@
                    
                      <div class="label">
                      <label for="">Password</label>
-                     <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="password" name="password">
+                     <input type="text" placeholder="Ex : SEVRI VENDRIAN" id="password" name="password" >
                         </div>
                    </div>
 
@@ -138,38 +140,42 @@
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-                        <select name="jenis_kelamin">
+                        <select name="jenis_kelamin" id="jenis_kelamin">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
                      </div>
                      <div class="label">
                         Tanggal Lahir <br>
-                        <input type="date" name="tanggal_lahir" id="date">
+                        <input type="date" name="tanggal_lahir" id="date" >
                      </div>
                   </div>
                    
                     <div class="column">
                     <div class="label">
                         Berat Badan <br>
-                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
+                        <input type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb" >
                      </div>
                      <div class="label">
                          Tinggi Badan <br>
-                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb" >
                      </div>
                      
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="nohp" >
                      </div>
                     <div class="label">
                          Harga Pelatih <br>
-                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="tb">
+                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="harga" >
                      </div>
-                     <button>Tambah</button>
-                     <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
+                     <button type="button" onclick="validateTambahPelatih()">Tambah</button>
+                     <label style="margin-top: 15px" class="custom-file-upload">
+                     Pilih Profile
+                        <input type="file" name="gambar" id="gambar"/>
+                    </label>
+                     
                 </form>
               </div>
 
@@ -180,6 +186,8 @@
         </div>
     </section>
 
+    <script src="../../JS/validation.js"></script>
+    <script src="../../JS/showpict.js"></script>
     <script src="../../JS/dashboard.js"></script>
 </body>
 </html>

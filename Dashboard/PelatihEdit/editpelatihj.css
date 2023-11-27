@@ -520,7 +520,7 @@ img .btntambah{
 
 .profile-image img{
     width: 35%;
-   margin-top: -20rem;
+   margin-top: -53rem;
 }
 .profile-image .tambah-form{
     display: inline-block;
@@ -552,14 +552,16 @@ img .btntambah{
 
 
 .column select{
-    width: 100%;
+    width: 230px;
     height: 50px;
     border-radius: 7px;
     border-width: 1px;
-  
+    padding: 12px;
+
 }
 #date {
-    width: 100%;
+    
+    width: 230px;
     height: 50px;
     border-radius: 7px;
     border-width: 1px;
@@ -576,6 +578,40 @@ img .btntambah{
     margin-left: 16px;
     margin-bottom: 40px;
 }
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    width: 30%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    display: inline-block;
+    float: right;
+    background-color: #BEF096;
+    padding: 13px 30px;
+    margin-left: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 90px;
+    left: 63rem;
+    border-radius: 15px;
+    width: 16%;
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    transition:opacity 9s ease-in-out;
+            
+  }
 
 /* .dash-content button{
     margin-top: -5rem;

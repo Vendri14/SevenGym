@@ -2,7 +2,7 @@
     require("../../koneksi/konesi.php");
     $id = $_GET['update'];
     
-$query = mysqli_query($koneksi,"SELECT trainner.nama_lengkap,user.id_user, trainner.deskripsi_pelatih, user.username,user.password,trainner.jenis_kelamin,trainner.tanggal_lahir,trainner.bb,trainner.tb,trainner.nohp,trainner.harga_trainner from trainner join user on user.id_user = '$id'");
+$query = mysqli_query($koneksi,"SELECT trainner.nama_lengkap,trainner.profil_trainner,user.id_user, trainner.deskripsi_pelatih, user.username,user.password,trainner.jenis_kelamin,trainner.tanggal_lahir,trainner.bb,trainner.tb,trainner.nohp,trainner.harga_trainner from trainner join user on user.id_user = '$id'");
 
 $result = mysqli_fetch_assoc($query);
 
@@ -23,7 +23,7 @@ if (!isset($_SESSION["islogin"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="editpelatih.css">
+    <link rel="stylesheet" href="editpelatihj.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -105,9 +105,12 @@ if (!isset($_SESSION["islogin"])) {
                 </div>
             </div>
 
+            <div id="customAlert" class="custom-alert"></div>
+
+
             <div class="profile-image">
-             <form action="../../koneksi/updateuserpelatih.php" method="POST">
-                <img src="../../img/profilephoto.png" alt="">
+             <form id="simpan" action="../../koneksi/updateuserpelatih.php" method="POST">
+                <img id="showimg" src="../../img/<?php echo $result['profil_trainner'] ?>" alt="">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
@@ -115,14 +118,15 @@ if (!isset($_SESSION["islogin"])) {
                 <div class="label">
                     </div>
                    <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
+                   <input type="hidden" name="gambarlama" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["profil_trainner"]; ?>" id="gambarlama">
                     <div class="label">
                    Nama Pelatih
                     </div>
-                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih" value="<?= $result['nama_lengkap']; ?>">
+                   <input type="text" placeholder="Ex : SEVRI VENDRIAN" name="nama_pelatih" value="<?= $result['nama_lengkap']; ?>" id="nama_pelatih">
 
                    <div class="label">
                          Deskripsi Pelatih <br>
-                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result['deskripsi_pelatih']; ?>" >
+                        <input style="height: 140px;" type="text" name="deskripsi" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result['deskripsi_pelatih']; ?>" id="deskripsi" >
                      </div>
                    
                    <div class="column">
@@ -142,7 +146,7 @@ if (!isset($_SESSION["islogin"])) {
                     <div class="label">
                         <label for="">Jenis Kelamin</label>
                         <br>
-                        <select name="jenis_kelamin" value="<?= $result['jenis_kelamin']; ?>">
+                        <select name="jenis_kelamin" value="<?= $result['jenis_kelamin']; ?>" id="jenis_kelamin">
                         <option>Perempuan</option>
                         <option>Laki-Laki</option>
                      </select>
@@ -166,15 +170,18 @@ if (!isset($_SESSION["islogin"])) {
                     </div>
                     <div class="label">
                          NoHp <br>
-                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result['nohp']; ?>">
+                        <input type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="nohp" value="<?= $result['nohp']; ?>">
                      </div>
                     <div class="label">
                          Harga Pelatih <br>
-                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="tb" value="<?= $result['harga_trainner']; ?>">
+                        <input type="text" name="harga" placeholder="Ex : SEVRI VENDRIAN" id="harga" value="<?= $result['harga_trainner']; ?>">
                      </div>
-                     <button>Tambah</button>
-                     <button style="background-color: #707070; color: #fff;">Pilih Profile</button>
-                     <button style="background-color: #FF7C7C ">Hapus Profile</button>
+                     <button type="button" onclick="validateUpdatePelatih()" class="submit" >Tambah</button>
+                     <label style="margin-top: 15px" class="custom-file-upload">
+                     Pilih Profile
+                        <input type="file" name="gambar" id="gambar"/>
+                    </label>
+                     
                 </form>
               </div>
 
@@ -185,6 +192,8 @@ if (!isset($_SESSION["islogin"])) {
         </div>
     </section>
 
+    <script src="../../JS/validation.js"></script>
+    <script src="../../JS/showpict.js"></script>
     <script src="../../JS/dashboard.js"></script>
 </body>
 </html>

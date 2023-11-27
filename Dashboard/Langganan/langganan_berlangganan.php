@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require('../../koneksi/konesi.php');
+
     // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
     // $result = mysqli_fetch_assoc($query);
 
@@ -197,10 +199,8 @@ session_start();
 
                 <div class="table-responsive">
                     <table id="example" class="table table-bordered">
-                        <input style="padding: 12px;" type="text" placeholder="Search..">
                         <a href="langganan.php"><button style="border-right:0;" id="pilih">Proses Transaksi </button></a> <a href="langganan_berlangganan.php"><button style="border-left: 0;" id="pilih2">Sudah Berlangganan</button></a>
-                        <button onclick="openModal()" class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Pelanggan Berlangganan</button>
+
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -217,7 +217,7 @@ session_start();
                         <tbody>
                             <?php
                           
-                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Terverifikasi'";
+                          $query_sql = "SELECT pelanggan.nama_pelanggan, detail_langganan.tanggal_masuk,detail_langganan.tanggal_keluar,detail_langganan.total_harga,detail_langganan.lama_berlangganan,detail_langganan.bukti_transaksi,detail_langganan.id_langganan,detail_langganan.id_pelanggan,detail_langganan.status from pelanggan join detail_langganan on pelanggan.id_pelanggan = detail_langganan.id_pelanggan where status = 'Terverifikasi' order by id_pelanggan desc";
                           $sql= mysqli_query($koneksi, $query_sql);
                             $no = 1;
                             ?>

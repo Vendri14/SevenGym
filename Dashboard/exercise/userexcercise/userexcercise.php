@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    require("../../koneksi/konesi.php");
+    require("../../../koneksi/konesi.php");
 
     // $query = mysqli_query($koneksi,"SELECT user.id_user, pelanggan.profil_pelanggan from user join pelanggan on user.id_user = pelanggan.id_user ");
     // $result = mysqli_fetch_assoc($query);
@@ -21,10 +21,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="tambahuserb.css">
+    <link rel="stylesheet" href="userexc.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.css" rel="stylesheet">
+ 
+<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
 
     <title>Admin Dashboard Panel</title>
 </head>
@@ -107,71 +112,52 @@
 
 
             <div class="profile-image">
-             <form id="tambah" action="../../koneksi/tambahuserpelanggan.php" method="POST" enctype="multipart/form-data">
-                <img src="../../img/profilephoto.png" alt="" id="showimg">
+             <form id="tambah" action="../../../koneksi/tambahuserpelanggan.php" method="POST" enctype="multipart/form-data">
+                <img src="../../../img/profilephoto.png" alt="" id="showimg">
                 
                 
                 <!-- <button class="btntambah"><img src="../img/Vector.png" alt=""></button> -->
                 <div class="tambah-form">
                     <div class="label">
-                   Nama User
+                   <h2 class="nmpelanggan">Nama Pelanggan :</h2>
+                   <h3 >Sevri Vendrian</h3>
+                   <h2 class="nmpelanggan">Nama Pelatih :</h2>
+                   <h3 >Hamood</h3>
                     </div>
-                   <input id="nama_user" type="text" name="nama_user" placeholder="Ex : SEVRI VENDRIAN" >
+
+                    <table id="example" class="table borderless">   
+                        <h4>Exercise :</h4>                     
+                        <thead>
+                            <tr>
+                                <th scope="col">Gambar</th>
+                                <th scope="col">Gambar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // $query_sql = "SELECT exercise.id_exercise,exercise.nama_exercise from exercise";
+                            // $sql= mysqli_query($koneksi, $query_sql);
+                            // $no = 1;
+                            ?>
+                            <?php
+                            // while ($result = mysqli_fetch_assoc($sql)) {
+                                ?>
+                                <tr>
+                                    <td>
+                                       <p>Abtukan</p>
+                                    </td>
+                                    <td>
+                                       <p>Abtukan</p>
+                                    </td>
+                                </tr>
+                                <?php
+                            // }
+                            ?>
+                        </tbody>
+                    </table>
 
                    
-                   <div class="column">
-                        <div class="label">
-                        <label for="">Username</label> 
-                        <input id="username" type="text" name= "username" placeholder="Ex : SEVRI VENDRIAN" id="username">
-                        </div>
-                   
-                     <div class="label">
-                     <label for="">Password</label>
-                     <input id="password" type="text" name="password" placeholder="Ex : SEVRI VENDRIAN" id="password">
-                        </div>
-                   </div>
-
-                   
-                    <div class="column">
-                    <div class="label">
-                        <label for="">Jenis Kelamin</label>
-                        <br>
-                        <select id="jenis_kelamin" style="width:230px;" name="jenis_kelamin">
-                        <option>Perempuan</option>
-                        <option>Laki-Laki</option>
-                     </select>
-                     </div>
-
-                     <div class="label">
-                        Tanggal Lahir <br>
-                        <input id="tgl_lahir" style="width: 230px;" type="date" name="tanggal_lahir" id="date">
-                     </div>
-                     <!-- <div class="label">
-                        Akhir Berlanggan <br>
-                        <input type="date" name="tanggal_lahir" id="date">
-                     </div> -->
-                  </div>
-                   
-                    <div class="column">
-                    <div class="label">
-                        Berat Badan <br>
-                        <input id="bb" type="text" name="bb" placeholder="Ex : SEVRI VENDRIAN" id="bb">
-                     </div>
-                     <div class="label">
-                         Tinggi Badan <br>
-                        <input id="tb" type="text" name="tb" placeholder="Ex : SEVRI VENDRIAN" id="tb">
-                     </div>
-                     
-                    </div>
-                    <div class="label">
-                         NoHp <br>
-                        <input id="nohp" type="text" name="nohp" placeholder="Ex : SEVRI VENDRIAN" id="tb">
-                     </div>
-                     <button type="button" onclick="validateTambahPelanggan()" class="submit">Tambah</button>
-                     <label style="margin-top: 15px" class="custom-file-upload">
-                     Pilih Profile
-                        <input type="file" name="gambar" id="gambar"/>
-                    </label>
+                  
                      <!-- <button style="background-color: #707070; color: #fff;">Pilih Profile</button> -->
                      <!-- <button style="background-color: #FF7C7C ">Hapus Profile</button> -->
                 </form>
@@ -184,8 +170,16 @@
         </div>
     </section>
 
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#example').DataTable();
+    });</script>
+
     <script src="../../JS/dashboard.js"></script>
     <script src="../../JS/validation.js"></script>
     <script src="../../JS/showpict.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"/>
 </body>
 </html>
