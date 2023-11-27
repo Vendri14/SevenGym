@@ -211,7 +211,6 @@ require('../../koneksi/konesi.php');
                                 <th scope="col">Lama Berlangganan</th>
                                 <th scope="col">Bukti Transaksi</th>
                                 <th scope="col">Status</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -248,11 +247,6 @@ require('../../koneksi/konesi.php');
                                     </td>
                                     <td>
                                         <?php echo $result['status']; ?>
-                                    </td>
-                                    <td class="crud"><a href="UserEdit/useredit.php"><button
-                                                style="background-color: #3A3F47"><img src="../../img/edit.png"
-                                                    alt=""></button><button><img src="../../img/delete.png" alt=""></button>
-                                    </td></a>
                                 </tr>
                                 <?php
                             }

@@ -233,8 +233,8 @@
                                     </td>
                                     <td class="crud">
                                         <button data-idexc="<?php echo $result['id_paket_exc']; ?>" data-namaex="<?php echo $result['nama_exercise']; ?>" data-waktu-set ="<?php echo $result['waktu_set']; ?>" data-rep="<?php echo $result['repetisi']; ?>" class="btnupdate"  style="background-color: #3A3F47"><img src="../../img/edit.png"alt=""></button>
-                                        
-                                        <a href="../koneksi/hapususer.php"><button><img src="../../img/delete.png" alt="" class="hapus"></button></a>
+                                        <a href="../../koneksi/hapus_exercise_paket_bg.php?id_exc=<?= $result['id_paket_exc']; ?>"><button><img src="../../img/delete.png" alt="" class="hapus"></button></a>
+
                                     </td>
                                 </tr>
                                 <?php

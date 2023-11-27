@@ -293,8 +293,9 @@ require('../../koneksi/konesi.php');
                                     </td>
                                     <td class="crud"> <a href= "../../koneksi/verifikasi_langganan.php?id_langganan=<?= $result['id_berlangganan']; ?>"><button name="verifikasi" style="background-color: #A9FF65"><img src="../../img/centang.png" alt=""></button></a>
                                     <button class="updatemodal" name="updatemodal" data-nama="<?php echo $result ['nama_pelanggan']; ?>" data-id="<?php echo $result ['id_pelanggan'];?>" data-gambar="<?php echo $result ['bukti_transaksi'];?>" style="background-color: #3A3F47"><img src="../../img/edit.png" alt=""></button>
-                                    <button><img src="../../img/delete.png" alt=""></button>
-                                    </td>
+                                    <a href="../../koneksi/hapuslangganan.php?pelanggan=<?= $result['id_pelanggan']; ?>"><button><img src="../../img/delete.png" alt="" class="hapus"></button></a>
+
+                                </td>
                                 </tr>
                                 <?php
                             }
