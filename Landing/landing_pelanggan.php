@@ -38,7 +38,7 @@
     <!-- <img src="../img/logocenter.png" alt=""> -->
     <section class="bayu">
     <h2>Berlangganan</h2>
-        <h3 class="price">Rp 150.000<label style="font-size: 20px;" for="">/thn</label> </h3>
+        <h3 class="price">Rp 1.800.000 <label style="font-size: 20px;" for="">/thn</label> </h3>
         <h5 class="fasility">Semua Fasilitas</h5>
       </section>
       <section class="bayi">
@@ -285,7 +285,7 @@
     <div class="card" data-aos="flip-right" data-aos-duration="1000" >
       <div class="card-body">
         <h5 class="card-title">TAHUNAN</h5>
-        <h3 class="card-price">Rp 150.000<label style="font-size: 20px;" for="">/thn</label> </h3>
+        <h3 class="card-price">Rp 1.800.000<label style="font-size: 20px;" for="">/thn</label> </h3>
         <p class="card-text">Semua Fasilitas.</p>
         <button onclick="openModal(myModal)" class="btn btn-primary">Daftar Sekarang</button>
       </div>

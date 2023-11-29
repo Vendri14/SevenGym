@@ -65,6 +65,8 @@ function updateDates() {
   var oneMonthLater = new Date();
   oneMonthLater.setMonth(oneMonthLater.getMonth() + parseInt(monthsInput));
 
+  var totalPrice = parseInt(monthsInput) * 150000;
+
   // Display the dates
   document.getElementById('currentDate').innerHTML = 'Tanggal Berlangganan </br> ' + currentDate.toISOString().slice(0, 10) + ' - ' + oneMonthLater.toISOString().slice(0, 10);
   document.getElementById('totalPrice').innerHTML = 'Total Price: </br> Rp ' + totalPrice;
@@ -125,7 +127,7 @@ function updateDates2() {
   var oneMonthLater = new Date();
   oneMonthLater.setMonth(oneMonthLater.getMonth() + parseInt(monthsInput));
 
-  var totalPrice = parseInt(monthsInput) * 150000;
+  var totalPrice = parseInt(monthsInput) *12 * 150000;
 
   // Display the dates
   document.getElementById('currentDate2').innerHTML = 'Tanggal Berlangganan </br> ' + currentDate.toISOString().slice(0, 10) + ' - ' + oneMonthLater.toISOString().slice(0, 10);

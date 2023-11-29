@@ -265,6 +265,12 @@
 
                 <button style=""> Edit Exercise</button>
                 </form>
+
+                <script>
+                    var myInput = document.getElementById('nama_exercise');
+
+                    myInput.disabled = true;
+                </script>
                 
                 
      

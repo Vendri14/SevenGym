@@ -74,7 +74,7 @@ function validateRegisterForm(){
     showAlert("isi Berat Badan!");
     return;
   }if (nohp === "") {
-    showAlert("isi Berat Badan!");
+    showAlert("isi Berat Nohp!");
     return;
   }if (nama_lengkap !== "" 
         && username !== "" 
@@ -85,7 +85,7 @@ function validateRegisterForm(){
         && tb !== "" 
         && bb !== "" 
         && nohp !== "") {
-    document.getElementById('input').sub();
+    document.getElementById('input').submit();
   }else {
     showAlert("Please fill in both username and password");
 }

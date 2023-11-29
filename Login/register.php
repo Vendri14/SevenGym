@@ -108,6 +108,6 @@
          </div>
       </div>
       <script src="../JS/fungsi.js"></script>
-      <script src="../JS/validationn.js"></script>
+      <script src="../JS/validation.js"></script>
    </body>
 </html>
