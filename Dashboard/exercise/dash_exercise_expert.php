@@ -127,14 +127,7 @@
                         <i class="uil uil-chart"></i>
                         <span class="link-name">Exercise</span>
                     </a></li>
-                <li><a href="#">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="link-name">Pendapatan</span>
-                    </a></li>
-                <li><a href="#">
-                        <i class="uil uil-comments"></i>
-                        <span class="link-name">Laporan</span>
-                    </a></li>
+                
 
             </ul>
 

@@ -55,12 +55,7 @@
         $gambar = upload();
     }
    
-        if(!$gambar){
-            echo '<script>alert("Data Gagal Ditambahkan");</script>';
-            echo '<script>window.location = "../Dashboard/TambahUser/tambahuser.php";</script>';
-            return false;
-            
-        }
+
 
     $queryupdateuser = mysqli_query($koneksi,"UPDATE user SET 
                     username = '$username', 
@@ -69,7 +64,7 @@
 
                     if (mysqli_affected_rows($koneksi) > 0 ) {
                         echo '<script>alert("User Berhasil Di Edit");</script>';
-                        echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
+                        echo '<script>window.location = "../Dashboard/dashboard2.php";</script>';
                     }
 
     $queryupdatepelanggan = mysqli_query($koneksi,"UPDATE trainner SET
@@ -80,12 +75,13 @@
                     bb = '$bb',
                     nohp = '$nohp',
                     deskripsi_pelatih = '$deskripsi',
-                    harga_trainner = '$harga_pelatih'
+                    harga_trainner = '$harga_pelatih',
+                    profil_trainner = '$gambar'
                     where id_user = '$id'");
 
         if (mysqli_affected_rows($koneksi) > 0 ) {
             echo '<script>alert("User Berhasil Di Edit");</script>';
-            echo '<script>window.location = "../Dashboard/dashboard.php";</script>';
+            echo '<script>window.location = "../Dashboard/dashboard2.php";</script>';
         }
 
 ?>

@@ -196,9 +196,6 @@ document.getElementById('tambah').submit();
   if (nohp === "") {
     showAlert("isi Nomor HP!");
     return;
-  }if (gambar === "") {
-    showAlert("Pilih Gambar!");
-    return;
   }if (nama_lengkap !== "" 
   && username !== "" 
   && password !== "" 
@@ -207,7 +204,7 @@ document.getElementById('tambah').submit();
   && bb !== "" 
   && tb !== "" 
   && nohp !== ""
-  && gambar !== "") {
+  ) {
 document.getElementById('tambah').submit();
 }
 
@@ -335,9 +332,6 @@ function validateUpdatePelatih(){
   }if (harga === "") {
     showAlert("Isi Harga!");
     return;
-  }if (gambar === "") {
-    showAlert("Pilih Gambar!");
-    return;
   }if (nama_lengkap !== "" 
   && username !== "" 
   && password !== "" 
@@ -347,7 +341,7 @@ function validateUpdatePelatih(){
   && tb !== "" 
   && nohp !== ""
   && harga !== ""
-  && gambar !== "") {
+  ) {
 document.getElementById('simpan').submit();
 }
 

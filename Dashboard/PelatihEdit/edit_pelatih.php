@@ -2,7 +2,7 @@
     require("../../koneksi/konesi.php");
     $id = $_GET['update'];
     
-$query = mysqli_query($koneksi,"SELECT trainner.nama_lengkap,trainner.profil_trainner,user.id_user, trainner.deskripsi_pelatih, user.username,user.password,trainner.jenis_kelamin,trainner.tanggal_lahir,trainner.bb,trainner.tb,trainner.nohp,trainner.harga_trainner from trainner join user on user.id_user = '$id'");
+$query = mysqli_query($koneksi,"SELECT user .*, trainner .* from user join trainner on user.id_user = trainner.id_user where trainner.id_user = '$id'");
 
 $result = mysqli_fetch_assoc($query);
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION["islogin"])) {
 
 
             <div class="profile-image">
-             <form id="simpan" action="../../koneksi/updateuserpelatih.php" method="POST">
+             <form id="simpan" action="../../koneksi/updateuserpelatih.php" method="POST" enctype="multipart/form-data">
                 <img id="showimg" src="../../img/<?php echo $result['profil_trainner'] ?>" alt="">
                 
                 
@@ -118,7 +118,7 @@ if (!isset($_SESSION["islogin"])) {
                 <div class="label">
                     </div>
                    <input type="hidden" name="id" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["id_user"]; ?>">
-                   <input type="hidden" name="gambarlama" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["profil_trainner"]; ?>" id="gambarlama">
+                   <input type="text" name="gambarlama" placeholder="Ex : SEVRI VENDRIAN" value="<?= $result["profil_trainner"]; ?>" id="gambarlama">
                     <div class="label">
                    Nama Pelatih
                     </div>

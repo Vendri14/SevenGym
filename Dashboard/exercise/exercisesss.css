@@ -663,6 +663,31 @@ nav.close ~ .dashboard .top{
     color: #fff;
   }
 
+  .exercise-container {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.previous-button,
+.next-button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 14px;
+    border: 1px solid;
+    color: #000;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+}
+
+.exercise-label {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
   
   
 

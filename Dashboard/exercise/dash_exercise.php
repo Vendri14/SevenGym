@@ -26,7 +26,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="exercisess.css">
+    <link rel="stylesheet" href="exercisesss.css">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -129,14 +129,7 @@
                         <i class="uil uil-chart"></i>
                         <span class="link-name">Exercise</span>
                     </a></li>
-                <li><a href="#">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="link-name">Pendapatan</span>
-                    </a></li>
-                <li><a href="#">
-                        <i class="uil uil-comments"></i>
-                        <span class="link-name">Laporan</span>
-                    </a></li>
+               
 
             </ul>
 
@@ -193,7 +186,72 @@
                                     alt=""> Tambah Data</button>
                                     <br>
                                      <button style="" id="beginner">Beginner </button> <a href="dash_exercise_medium.php"><button style="" id="medium">Medium </button></a>  <a href="dash_exercise_expert.php"><button style="" id="expert">Expert</button></a>
-                        
+
+                                     <div class="exercise-container">
+                                     <!-- <?php
+                                    function getExerciseId($action)
+                                    {
+                                        require('../../koneksi/konesi.php');
+                                    
+                                        // Fetch the current exercise ID from the URL
+                                        $currentExerciseId = isset($_GET['id_exercises']) ? $_GET['id_exercises'] : 1;
+
+                                        $selectfirst = mysqli_query($koneksi,"SELECT * from exercises where id_exercises = '$currentExerciseId' limit 1");
+                                        $res = mysqli_fetch_assoc($selectfirst);
+                                        var_dump($currentExerciseId);
+                                    
+                                        // Check if 'action' is set
+                                        if (isset($action)) {
+                                            if ($action == 'next') {
+                                                // Fetch the next exercise
+                                                $sqlNextExercise = mysqli_query($koneksi, "SELECT * FROM exercises WHERE id_exercises > $currentExerciseId ORDER BY id_exercises ASC LIMIT 1");
+                                                $nextExercise = mysqli_fetch_assoc($sqlNextExercise);
+                                                var_dump($nextExercise);
+
+                                    
+                                                if ($nextExercise) {
+                                                    // Access the next exercise's data
+                                                    return $nextExercise['id_exercises'];
+                                                } else {
+                                                    // No more exercises, handle accordingly
+                                                    return $currentExerciseId;
+                                                }
+                                            } elseif ($action == 'prev') {
+                                                // Fetch the previous exercise
+                                                $sqlPrevExercise = mysqli_query($koneksi, "SELECT * FROM exercises WHERE id_exercises < $currentExerciseId ORDER BY id_exercises DESC LIMIT 1");
+                                                $prevExercise = mysqli_fetch_assoc($sqlPrevExercise);
+                                    
+                                                if ($prevExercise) {
+                                                    // Access the previous exercise's data
+                                                    return $prevExercise['id_exercises'];
+                                                } else {
+                                                    // No previous exercise found, handle accordingly
+                                                    return $currentExerciseId;
+                                                }
+                                            }
+                                        }
+                                    
+                                        // Return the current exercise ID if 'action' is not set or if there is an issue fetching the next or previous exercise
+                                        return $currentExerciseId;
+                                    }
+                                    
+                                    // Initialize $currentExerciseId
+                                    $currentExerciseId = getExerciseId(null);
+                                    $prevExercise = getExerciseId('prev');
+                                    $nextExercise = getExerciseId('next');
+                                    ?>
+                                    
+                                    <div class="exercise-container">
+                                        <a href="?action=prev&id_exercises=<?= $prevExercise; ?>">
+                                            <button class="previous-button">Previous</button>
+                                        </a>
+                                        <div class="exercise-label">Exercise ID <?= $currentExerciseId; ?></div>
+                                        <a href="?action=next&id_exercises=<?= $nextExercise; ?>">
+                                            <button class="next-button">Next</button>
+                                        </a>
+                                    </div> -->
+
+
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -284,6 +342,8 @@
 
     <script src="../../JS/dashboard.js"></script>
     <script src="../../JS/modal.js"></script>
+    <script src="../../JS/nextprev.js"></script>
+
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"/>

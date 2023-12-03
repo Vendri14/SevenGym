@@ -20,7 +20,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="landingm.css">
+    <link rel="stylesheet" href="landing_berlangganan.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
@@ -164,7 +164,7 @@
           <a class="nav-link" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#konten2">Tentang Kita</a>
+          <a class="nav-link" href="#tentang">Tentang Kita</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pelayanan</a>
@@ -236,6 +236,11 @@
       </div>
     </section>
   </section>
+  <div class="ip" id="tentang"></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
 
   <div  data-aos="zoom-in" class="centerlogo">
     <img src="../img/logocenter.png" alt="">
@@ -430,7 +435,7 @@
  
  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
- <script src="../JS/modal.js"></script>
+ <script src="../JS/modalaa.js"></script>
  <script src="../JS/showpicta.js"></script>
  <script>
   AOS.init();
