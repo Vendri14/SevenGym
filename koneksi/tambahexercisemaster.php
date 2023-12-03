@@ -39,7 +39,7 @@
         $namaFilebaru .= '.';
         $namaFilebaru .= $ekstensigambar; 
         //lolos semua validasi gambar
-        move_uploaded_file($tmpname, '../img/img_exercise'. $namaFilebaru);
+        move_uploaded_file($tmpname, '../img/'. $namaFilebaru);
         return $namaFilebaru;
     
     }
