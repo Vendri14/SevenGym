@@ -84,10 +84,10 @@
                                     <input type="hidden" name="nama_exercise[]" value="<?php echo $result['nama_exercise']; ?>"></input>
                                     </td>
                                     <td>
-                                        <input type="text" name="waktu_set[]">
+                                        <input type="text" name="waktuset[]">
                                     </td>
                                     <td>
-                                       <input type="text" name="repetisi[]">
+                                       <input type="text" name="reps[]">
                                     </td>
                                     <td>
                                         <input type="checkbox" id="cek" name="idcheckbox[]" value="<?= $result['id_exercise'];  ?>">
@@ -98,7 +98,7 @@
                             ?>
                         </tbody>
                     </table>
-                                 <button style=""> Tambah Exercise</button>
+                                 <button name="submit" style=""> Tambah Exercise</button>
                     </form>
                     
             </div>
@@ -182,8 +182,8 @@
                     <table id="example2" class="table borderless">
                     <a href="dash_exercise.php"><button style="border-right:0;" id="pilih">Exercise Paket </button></a> <a href="dash_exercise2.php"><button style="border-left: 0;" id="pilih2">Exercise User</button></a>
                         <a href="TambahUser/tambahuser.php"></a>
-                        <button onclick="openModal(myModal)" class="btntambah"><img src="../img/Vector.png"
-                                    alt=""> Tambah Data</button>
+                        <button onclick="openModal(myModal)" class="btntambah"><img src="../img/Vector.png"alt=""> Tambah Data</button>
+                        <a href="exercisemaster.php"> <button class="btntambah"><img src="../img/Vector.png"alt=""> Tambah Exercise Master</button></a>
                                     <br>
                                      <button style="" id="beginner">Beginner </button> <a href="dash_exercise_medium.php"><button style="" id="medium">Medium </button></a>  <a href="dash_exercise_expert.php"><button style="" id="expert">Expert</button></a>
 

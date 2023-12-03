@@ -48,7 +48,6 @@
     
     }
 
-    
         if ($_FILES['gambar']['error'] === 4) {
             $gambar = $gambarlama;
         }else {
